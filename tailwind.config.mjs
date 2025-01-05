@@ -8,12 +8,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        'custom-gold': '#d0b48f',
-        'custom-gold-light': '#e3cbaa',
+        'custom-red': '#FF0000',
+        'custom-red-dark': '#CC0000',
+        'custom-black': '#0F0F0F',
+        'custom-gray': '#272727',
       },
     },
   },
   plugins: [
     require('@tailwindcss/forms'),
+    require('@tailwindcss/line-clamp'),
   ],
 }

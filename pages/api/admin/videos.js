@@ -1,66 +1,98 @@
 // pages/api/admin/videos.js
-import { createClient } from '@supabase/supabase-js';
-import { withAuth } from '../../../utils/withAuth';
+import { supabase, adminSupabase } from '../../../utils/supabase-client';
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
+export default async function handler(req, res) {
+ console.log('Videos API called with method:', req.method);
 
-async function handler(req, res) {
-  try {
-    switch (req.method) {
-      case 'GET':
-        const { data, error: fetchError } = await supabase
-          .from('videos')
-          .select('*')
-          .order('created_at', { ascending: false });
+ try {
+   // GET Request - Öffentlicher Zugriff
+   if (req.method === 'GET') {
+     const { data, error } = await supabase
+       .from('videos')
+       .select('*')
+       .order('created_at', { ascending: false });
 
-        if (fetchError) throw fetchError;
-        return res.status(200).json(data);
+     if (error) {
+       console.error('Supabase error:', error);
+       throw error;
+     }
 
-      case 'POST':
-        const { data: insertData, error: insertError } = await supabase
-          .from('videos')
-          .insert([req.body])
-          .select()
-          .single();
+     return res.status(200).json(data || []);
+   }
 
-        if (insertError) throw insertError;
-        return res.status(201).json(insertData);
+   // Ab hier prüfen wir die Authentifizierung für admin Operationen
+   const token = req.headers.authorization?.split(' ')[1];
+   if (!token) {
+     return res.status(401).json({ message: 'Unauthorized - No token provided' });
+   }
 
-      case 'PUT':
-        const videoId = req.query.id;
-        const { data: updateData, error: updateError } = await supabase
-          .from('videos')
-          .update(req.body)
-          .eq('id', videoId)
-          .select()
-          .single();
+   // POST Request - Nur für Admins
+   if (req.method === 'POST') {
+     const videoData = req.body;
+     console.log('Received video data:', videoData);
 
-        if (updateError) throw updateError;
-        return res.status(200).json(updateData);
+     const { data, error } = await adminSupabase
+       .from('videos')
+       .insert([{
+         ...videoData,
+         created_at: new Date().toISOString()
+       }])
+       .select()
+       .single();
 
-      case 'DELETE':
-        const id = req.query.id;
-        const { error: deleteError } = await supabase
-          .from('videos')
-          .delete()
-          .eq('id', id);
+     if (error) {
+       console.error('Supabase insert error:', error);
+       throw error;
+     }
 
-        if (deleteError) throw deleteError;
-        return res.status(200).json({ message: 'Video erfolgreich gelöscht' });
+     return res.status(201).json(data);
+   }
 
-      default:
-        return res.status(405).json({ message: 'Methode nicht erlaubt' });
-    }
-  } catch (error) {
-    console.error('API Fehler:', error);
-    return res.status(500).json({ 
-      message: 'Interner Server Fehler',
-      error: error.message 
-    });
-  }
+   // PUT Request - Nur für Admins
+   if (req.method === 'PUT') {
+     const { id } = req.query;
+     const updateData = req.body;
+
+     const { data, error } = await adminSupabase
+       .from('videos')
+       .update(updateData)
+       .eq('id', id)
+       .select()
+       .single();
+
+     if (error) {
+       console.error('Supabase update error:', error);
+       throw error;
+     }
+
+     return res.status(200).json(data);
+   }
+
+   // DELETE Request - Nur für Admins
+   if (req.method === 'DELETE') {
+     const { id } = req.query;
+
+     const { error } = await adminSupabase
+       .from('videos')
+       .delete()
+       .eq('id', id);
+
+     if (error) {
+       console.error('Supabase delete error:', error);
+       throw error;
+     }
+
+     return res.status(200).json({ message: 'Video successfully deleted' });
+   }
+
+   return res.status(405).json({ message: 'Method not allowed' });
+
+ } catch (error) {
+   console.error('Videos API Error:', error);
+   return res.status(500).json({
+     message: 'Internal Server Error',
+     details: error.message,
+     stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
+   });
+ }
 }
-
-export default withAuth(handler);

@@ -1,34 +1,28 @@
 // utils/supabase-client.js
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/supabase-js';
 
+// Hole die Umgebungsvariablen
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-if (!supabaseUrl || !supabaseAnonKey) {
-  throw new Error('Fehlende Supabase Umgebungsvariablen')
+// Überprüfe ob die notwendigen Variablen vorhanden sind
+if (!supabaseUrl || !supabaseAnonKey || !supabaseServiceKey) {
+  console.error('Fehlende Supabase Umgebungsvariablen:', {
+    url: !!supabaseUrl,
+    anonKey: !!supabaseAnonKey,
+    serviceKey: !!supabaseServiceKey
+  });
+  throw new Error('Erforderliche Supabase Umgebungsvariablen fehlen');
 }
 
-// Client für öffentliche Anfragen (mit ANON Key)
+// Client für öffentliche Anfragen
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
-// Client für Admin-Anfragen (mit Service Key)
+// Client für Admin-Anfragen
 export const adminSupabase = createClient(supabaseUrl, supabaseServiceKey, {
   auth: {
     autoRefreshToken: false,
     persistSession: false
   }
 });
-
-// Hilfsfunktion zum Prüfen der Verbindung
-export async function testConnection() {
-  try {
-    const { data, error } = await supabase.from('settings').select('*');
-    if (error) throw error;
-    console.log('Supabase Verbindung erfolgreich:', !!data);
-    return true;
-  } catch (error) {
-    console.error('Supabase Verbindungsfehler:', error);
-    return false;
-  }
-}

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createClient } from '@supabase/supabase-js';
-import { Trash2, Edit, PlayCircle, Upload } from 'lucide-react';
+import { Trash2, Edit } from 'lucide-react';
 
-// Client-side Supabase instance mit ANON key
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
@@ -13,16 +12,20 @@ export default function VideoManagement() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [editingVideo, setEditingVideo] = useState(null);
-  const [previewVideo, setPreviewVideo] = useState(null);
   
-  // Form States
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [thumbnail, setThumbnail] = useState(null);
   const [video, setVideo] = useState(null);
-  const [previewVideoFile, setPreviewVideoFile] = useState(null);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
+
+
+
+
+
+  
   useEffect(() => {
     fetchVideos();
   }, []);
@@ -48,9 +51,21 @@ export default function VideoManagement() {
     }
   };
 
+
+
+
   const handleFileUpload = async (file, directory) => {
+    if (!file) return null;
+  
     try {
-      // FormData erstellen
+      console.log('Starting upload of file:', file.name, 'Size:', file.size);
+  
+      // Check file size
+      const maxSize = 500 * 1024 * 1024; // 500MB
+      if (file.size > maxSize) {
+        throw new Error(`File too large. Maximum size is 500MB. Your file: ${(file.size / (1024 * 1024)).toFixed(2)}MB`);
+      }
+  
       const formData = new FormData();
       formData.append('file', file);
       formData.append('path', directory);
@@ -65,11 +80,14 @@ export default function VideoManagement() {
   
       if (!response.ok) {
         const errorData = await response.json();
+        console.error('Upload error:', errorData);
         throw new Error(errorData.message || 'Upload failed');
       }
   
       const data = await response.json();
+      console.log('Upload successful:', data);
       return data.publicUrl;
+  
     } catch (error) {
       console.error('Upload error:', error);
       throw error;
@@ -81,12 +99,12 @@ export default function VideoManagement() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError(null);
     
     try {
       const token = localStorage.getItem('adminToken');
-      let thumbnailUrl = '';
-      let videoUrl = '';
-      let previewUrl = '';
+      let thumbnailUrl = null;
+      let videoUrl = null;
 
       if (thumbnail) {
         thumbnailUrl = await handleFileUpload(thumbnail, 'thumbnails');
@@ -96,34 +114,35 @@ export default function VideoManagement() {
         videoUrl = await handleFileUpload(video, 'videos');
       }
 
-      if (previewVideoFile) {
-        previewUrl = await handleFileUpload(previewVideoFile, 'previews');
-      }
-
       const videoData = {
         title,
         description,
-        price: parseFloat(price),
-        ...(thumbnailUrl && { thumbnail_url: thumbnailUrl }),
-        ...(videoUrl && { video_url: videoUrl }),
-        ...(previewUrl && { preview_url: previewUrl })
+        price: price ? parseFloat(price) : null,
+        thumbnail_url: thumbnailUrl || (editingVideo ? editingVideo.thumbnail_url : null),
+        video_url: videoUrl || (editingVideo ? editingVideo.video_url : null)
       };
 
-      const url = editingVideo 
-        ? `/api/admin/videos/${editingVideo.id}`
-        : '/api/admin/videos';
+      console.log('Sending video data:', videoData);
+      console.log('Request URL:', editingVideo ? `/api/admin/videos/${editingVideo.id}` : '/api/admin/videos');
+      console.log('Request Method:', editingVideo ? 'PUT' : 'POST');
 
-      const response = await fetch(url, {
-        method: editingVideo ? 'PUT' : 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify(videoData)
-      });
+      const response = await fetch(
+        editingVideo ? `/api/admin/videos/${editingVideo.id}` : '/api/admin/videos',
+        {
+          method: editingVideo ? 'PUT' : 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(videoData)
+        }
+      );
+
+      const responseData = await response.json();
+      console.log('Server Antwort:', responseData);
 
       if (!response.ok) {
-        throw new Error('Fehler beim Speichern des Videos');
+        throw new Error(responseData.message || `Fehler: ${response.status} ${response.statusText}`);
       }
 
       // Reset form
@@ -132,12 +151,12 @@ export default function VideoManagement() {
       setPrice('');
       setThumbnail(null);
       setVideo(null);
-      setPreviewVideoFile(null);
       setEditingVideo(null);
 
       // Refresh video list
       fetchVideos();
     } catch (error) {
+      console.error('Update error:', error);
       setError(error.message);
     } finally {
       setLoading(false);
@@ -160,6 +179,7 @@ export default function VideoManagement() {
         throw new Error('Fehler beim Löschen des Videos');
       }
 
+      // Hole die aktualisierte Video-Liste
       fetchVideos();
     } catch (error) {
       setError(error.message);
@@ -171,6 +191,7 @@ export default function VideoManagement() {
     setTitle(video.title);
     setDescription(video.description);
     setPrice(video.price.toString());
+    // Thumbnail und Video werden nur gesetzt wenn neue hochgeladen werden
   };
 
   if (loading) return <div className="p-4">Laden...</div>;
@@ -204,7 +225,6 @@ export default function VideoManagement() {
               value={price}
               onChange={(e) => setPrice(e.target.value)}
               className="w-full bg-black border border-[#d0b48f] rounded p-2 text-white"
-              required
             />
           </div>
         </div>
@@ -219,9 +239,9 @@ export default function VideoManagement() {
           />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-[#d0b48f] mb-2">Thumbnail</label>
+            <label className="block text-[#d0b48f] mb-2">Thumbnail {editingVideo && '(Optional bei Bearbeitung)'}</label>
             <input
               type="file"
               accept="image/*"
@@ -231,21 +251,11 @@ export default function VideoManagement() {
           </div>
 
           <div>
-            <label className="block text-[#d0b48f] mb-2">Video</label>
+            <label className="block text-[#d0b48f] mb-2">Video {editingVideo && '(Optional bei Bearbeitung)'}</label>
             <input
               type="file"
               accept="video/*"
               onChange={(e) => setVideo(e.target.files[0])}
-              className="w-full bg-black border border-[#d0b48f] rounded p-2 text-white"
-            />
-          </div>
-
-          <div>
-            <label className="block text-[#d0b48f] mb-2">Preview Video</label>
-            <input
-              type="file"
-              accept="video/*"
-              onChange={(e) => setPreviewVideoFile(e.target.files[0])}
               className="w-full bg-black border border-[#d0b48f] rounded p-2 text-white"
             />
           </div>
@@ -255,7 +265,14 @@ export default function VideoManagement() {
           {editingVideo && (
             <button
               type="button"
-              onClick={() => setEditingVideo(null)}
+              onClick={() => {
+                setEditingVideo(null);
+                setTitle('');
+                setDescription('');
+                setPrice('');
+                setThumbnail(null);
+                setVideo(null);
+              }}
               className="px-4 py-2 bg-gray-700 text-white rounded hover:bg-gray-600"
             >
               Abbrechen
@@ -288,17 +305,11 @@ export default function VideoManagement() {
             <div className="p-4 space-y-2">
               <h3 className="text-lg font-bold text-[#e3cbaa]">{video.title}</h3>
               <p className="text-gray-400">{video.description}</p>
-              <p className="text-[#d0b48f] font-bold">{video.price.toFixed(2)} €</p>
+              <p className="text-[#d0b48f] font-bold">
+                {video.price ? `${video.price.toFixed(2)} €` : 'Kein Preis angegeben'}
+              </p>
               
               <div className="flex justify-end space-x-2">
-                {video.preview_url && (
-                  <button
-                    onClick={() => setPreviewVideo(video.preview_url)}
-                    className="p-2 text-[#d0b48f] hover:text-[#e3cbaa]"
-                  >
-                    <PlayCircle size={20} />
-                  </button>
-                )}
                 <button
                   onClick={() => handleEdit(video)}
                   className="p-2 text-[#d0b48f] hover:text-[#e3cbaa]"
@@ -316,27 +327,6 @@ export default function VideoManagement() {
           </div>
         ))}
       </div>
-
-      {/* Preview Modal */}
-      {previewVideo && (
-        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-          <div className="relative w-full max-w-4xl">
-            <button 
-              onClick={() => setPreviewVideo(null)}
-              className="absolute -top-10 right-0 text-white hover:text-[#e3cbaa]"
-            >
-              Schließen
-            </button>
-            <video
-              src={previewVideo}
-              controls
-              autoPlay
-              className="w-full"
-              onEnded={() => setPreviewVideo(null)}
-            />
-          </div>
-        </div>
-      )}
     </div>
   );
 }

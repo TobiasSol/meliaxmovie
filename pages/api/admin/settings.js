@@ -1,23 +1,26 @@
 // pages/api/admin/settings.js
-import { createClient } from '@supabase/supabase-js';
+import { adminSupabase } from '../../../utils/supabase-client';
 import { withAuth } from '../../../utils/withAuth';
 
-// Initialisiere Supabase mit Service Role Key
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
-
 async function handler(req, res) {
+  console.log('Settings API called with method:', req.method); // Debug log
+
   try {
     // GET Request
     if (req.method === 'GET') {
-      const { data, error } = await supabase
+      console.log('Attempting to fetch settings from Supabase');
+      
+      const { data, error } = await adminSupabase
         .from('settings')
         .select('*')
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase fetch error:', error);
+        throw error;
+      }
+
+      console.log('Settings fetched successfully:', data);
 
       return res.status(200).json(data || {
         passwordprotectionenabled: false,
@@ -29,28 +32,35 @@ async function handler(req, res) {
     // POST Request
     if (req.method === 'POST') {
       const settings = req.body;
+      console.log('Attempting to update settings:', settings);
 
-      const { data, error } = await supabase
+      const { data, error } = await adminSupabase
         .from('settings')
         .upsert([{
-          id: 1,
+          id: 1, // Assuming we always use ID 1 for settings
           ...settings,
           updated_at: new Date().toISOString()
         }])
         .select()
         .single();
 
-      if (error) throw error;
+      if (error) {
+        console.error('Supabase update error:', error);
+        throw error;
+      }
 
+      console.log('Settings updated successfully:', data);
       return res.status(200).json(data);
     }
 
-    return res.status(405).json({ message: 'Methode nicht erlaubt' });
+    return res.status(405).json({ message: 'Method not allowed' });
+
   } catch (error) {
-    console.error('API Fehler:', error);
-    return res.status(500).json({ 
-      message: 'Interner Server Fehler',
-      error: error.message 
+    console.error('Settings API Error:', error);
+    return res.status(500).json({
+      message: 'Internal server error',
+      error: error.message,
+      stack: process.env.NODE_ENV === 'development' ? error.stack : undefined
     });
   }
 }

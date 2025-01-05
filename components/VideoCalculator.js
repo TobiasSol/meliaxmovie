@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { loadStripe } from "@stripe/stripe-js";
-
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+import getStripe from "../utils/stripe";
 
 export default function VideoCalculator() {
   const [duration, setDuration] = useState(10);
@@ -12,6 +10,7 @@ export default function VideoCalculator() {
   const [videoType, setVideoType] = useState('Portrait');
   const [deliveryTime, setDeliveryTime] = useState('1 Week');
   const [appreciation, setAppreciation] = useState('');
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const calculatePrice = () => {
     let basePrice = duration === 10 ? 200 : 340;
@@ -63,39 +62,47 @@ export default function VideoCalculator() {
   };
 
   const handleCheckout = async () => {
-    const stripe = await stripePromise;
-    
-    const response = await fetch('/api/checkout', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        duration,
-        is4K,
-        extras,
-        language,
-        setting,
-        videoType,
-        deliveryTime,
-        appreciation,
-        totalPrice: calculatePrice()
-      }),
-    });
+    try {
+      setIsProcessing(true);
+      const stripe = await getStripe();
+      if (!stripe) throw new Error('Could not initialize Stripe');
 
-    const session = await response.json();
-    
-    if (session.error) {
-      alert('Fehler beim Erstellen der Bestellung. Bitte versuchen Sie es später erneut.');
-      return;
-    }
+      const response = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          duration,
+          is4K,
+          extras,
+          language,
+          setting,
+          videoType,
+          deliveryTime,
+          appreciation,
+          totalPrice: calculatePrice()
+        }),
+      });
 
-    const result = await stripe.redirectToCheckout({
-      sessionId: session.id,
-    });
+      const session = await response.json();
+      
+      if (session.error) {
+        throw new Error(session.error);
+      }
 
-    if (result.error) {
-      alert('Fehler beim Weiterleiten zur Bezahlseite. Bitte versuchen Sie es später erneut.');
+      const result = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut.');
+    } finally {
+      setIsProcessing(false);
     }
   };
 
@@ -303,8 +310,8 @@ export default function VideoCalculator() {
             </div>
           </div>
 
-          {/* Rechte Spalte */}
-          <div className="space-y-3">
+        {/* Rechte Spalte */}
+        <div className="space-y-3">
             {/* Video Type & Resolution */}
             <div className="bg-gradient-to-b from-[#d0b48f] to-[#e5d4bc] rounded-xl p-3 shadow-lg">
               <label className="block text-xl font-black text-gray-900 mb-4 flex items-center">
@@ -442,9 +449,9 @@ export default function VideoCalculator() {
               <button
                 onClick={handleSubmit}
                 className="w-full bg-gray-900 text-[#d0b48f] text-lg font-black py-4 px-6 rounded-lg hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                disabled={extras.length === 0}
+                disabled={extras.length === 0 || isProcessing}
               >
-                Jetzt bestellen
+                {isProcessing ? 'Wird verarbeitet...' : 'Jetzt bestellen'}
               </button>
             </div>
           </div>
@@ -452,4 +459,4 @@ export default function VideoCalculator() {
       </div>
     </div>
   );
-} 
+}
