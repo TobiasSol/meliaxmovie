@@ -19,17 +19,17 @@ export default function Sidebar() {
 
   const menuItems = [
     { icon: <Home size={20} />, label: 'Home', href: '/' },
-    { icon: <Flame size={20} />, label: 'Trending', href: '/trending' },
-    { icon: <Clock size={20} />, label: 'Newest', href: '/newest' },
-    { icon: <ThumbsUp size={20} />, label: 'Most Liked', href: '/liked' },
-    { icon: <PlaySquare size={20} />, label: 'My Videos', href: '/my-videos' },
-    { icon: <History size={20} />, label: 'History', href: '/history' },
+    { icon: <Flame size={20} />, label: 'Trending', href: '/' },
+    { icon: <Clock size={20} />, label: 'Newest', href: '/' },
+    { icon: <ThumbsUp size={20} />, label: 'Most Liked', href: '/' },
+    { icon: <PlaySquare size={20} />, label: 'My Videos', href: '/' },
+    { icon: <History size={20} />, label: 'History', href: '/' },
   ];
 
   const subscriptionItems = [
-    { icon: <Heart size={20} />, label: 'Premium', href: '/premium' },
-    { icon: <ShoppingBag size={20} />, label: 'Shop', href: '/shop' },
-    { icon: <Gift size={20} />, label: 'Wishlist', href: '/wishlist' },
+    { icon: <Heart size={20} />, label: 'Premium', href: '/' },
+    { icon: <ShoppingBag size={20} />, label: 'Shop', href: '/' },
+    { icon: <Gift size={20} />, label: 'Wishlist', href: '/' },
   ];
 
   const sidebarContent = (
