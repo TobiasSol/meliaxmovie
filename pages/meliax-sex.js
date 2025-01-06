@@ -5,14 +5,14 @@ import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
 
-export default function Home() {
+export default function SexPage() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const categories = [
-    'All', 'Latest', 'Popular', 'Custom', 'Exclusive', 'Premium'
+    'All', 'Latest', 'Popular', 'Exclusive', 'Premium'
   ];
 
   useEffect(() => {
@@ -36,16 +36,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Porn - Free Adult Videos & Premium XXX Content | MeliaX</title>
-        <meta name="description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content, premium adult videos, and exclusive erotic content. New videos added daily." />
-        <meta name="keywords" content="meliax porn, adult videos, xxx content, premium porn, erotic videos, free porn videos" />
-        <meta property="og:title" content="MeliaX Porn - Free Adult Videos & Premium XXX Content" />
-        <meta property="og:description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content and premium adult videos." />
+        <title>MeliaX Sex Videos - Exklusive Sex Clips & Private Shows | MeliaX</title>
+        <meta name="description" content="Schaue exklusive MeliaX Sex Videos und private Shows. Die heißesten Sex Clips und intime Einblicke von MeliaX. Täglich neue Updates." />
+        <meta name="keywords" content="meliax sex, sex videos, private shows, meliax clips, meliax privat, meliax exklusiv" />
+        <meta property="og:title" content="MeliaX Sex Videos - Exklusive Sex Clips & Private Shows" />
+        <meta property="og:description" content="Exklusive MeliaX Sex Videos und private Shows. Die heißesten Clips und intime Einblicke." />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="MeliaX Porn" />
+        <meta property="og:site_name" content="MeliaX Sex" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com" />
+        <link rel="canonical" href="https://meliax.com/meliax-sex" />
       </Head>
 
       <Navbar 
@@ -58,7 +58,7 @@ export default function Home() {
       />
       
       <main className="md:ml-64 pt-24 px-4 md:px-8 py-6">
-        {/* Categories */}
+        {/* Rest des Layouts wie bei den anderen Seiten */}
         <div className="mb-6 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
           {categories.map((category) => (
             <button
@@ -74,12 +74,9 @@ export default function Home() {
           ))}
         </div>
 
-        {/* Ad Banner */}
         <AdBanner />
 
-        {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Videos */}
           <div className="col-span-12">
             {loading ? (
               <div className="text-center py-12">
@@ -93,4 +90,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
+} 

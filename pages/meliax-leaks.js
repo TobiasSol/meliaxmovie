@@ -5,14 +5,14 @@ import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
 
-export default function Home() {
+export default function LeaksPage() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const categories = [
-    'All', 'Latest', 'Popular', 'Custom', 'Exclusive', 'Premium'
+    'All', 'Latest', 'Popular', 'Exclusive', 'Premium'
   ];
 
   useEffect(() => {
@@ -36,16 +36,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Porn - Free Adult Videos & Premium XXX Content | MeliaX</title>
-        <meta name="description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content, premium adult videos, and exclusive erotic content. New videos added daily." />
-        <meta name="keywords" content="meliax porn, adult videos, xxx content, premium porn, erotic videos, free porn videos" />
-        <meta property="og:title" content="MeliaX Porn - Free Adult Videos & Premium XXX Content" />
-        <meta property="og:description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content and premium adult videos." />
+        <title>MeliaX Leaks - Exclusive Leaked Content & Private Videos | MeliaX</title>
+        <meta name="description" content="Watch exclusive MeliaX leaked content, private videos and premium material. Access the largest collection of MeliaX leaks and private content." />
+        <meta name="keywords" content="meliax leaks, leaked content, private videos, exclusive leaks, meliax private content, meliax premium" />
+        <meta property="og:title" content="MeliaX Leaks - Exclusive Leaked Content & Private Videos" />
+        <meta property="og:description" content="Watch exclusive MeliaX leaked content and private videos. Premium leaked material." />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="MeliaX Porn" />
+        <meta property="og:site_name" content="MeliaX Leaks" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com" />
+        <link rel="canonical" href="https://meliax.com/meliax-leaks" />
       </Head>
 
       <Navbar 
@@ -93,4 +93,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
+} 

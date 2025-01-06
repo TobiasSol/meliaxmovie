@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
-export default function Navbar() {
+export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
@@ -11,7 +11,10 @@ export default function Navbar() {
       {/* Desktop Navigation */}
       <div className="hidden md:flex items-center h-full px-4">
         <div className="flex items-center gap-4">
-          <Menu className="text-gray-400 cursor-pointer hover:text-red-500" />
+          <Menu 
+            className="text-gray-400 cursor-pointer hover:text-red-500"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
           <Link href="/" className="flex items-center gap-2">
             <span className="text-2xl font-bold text-red-600">MeliaX-porn</span>
           </Link>
@@ -39,7 +42,10 @@ export default function Navbar() {
       {/* Mobile Navigation */}
       <div className="md:hidden flex items-center justify-between h-full px-4">
         <div className="flex items-center gap-2">
-          <Menu className="text-gray-400 cursor-pointer hover:text-red-500" />
+          <Menu 
+            className="text-gray-400 cursor-pointer hover:text-red-500" 
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
           <Link href="/" className="flex items-center">
             <span className="text-xl font-bold text-red-600">MeliaX</span>
           </Link>

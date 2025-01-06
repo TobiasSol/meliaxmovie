@@ -5,14 +5,14 @@ import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
 
-export default function Home() {
+export default function NacktPage() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const categories = [
-    'All', 'Latest', 'Popular', 'Custom', 'Exclusive', 'Premium'
+    'All', 'Latest', 'Popular', 'Exclusive', 'Premium'
   ];
 
   useEffect(() => {
@@ -36,16 +36,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Porn - Free Adult Videos & Premium XXX Content | MeliaX</title>
-        <meta name="description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content, premium adult videos, and exclusive erotic content. New videos added daily." />
-        <meta name="keywords" content="meliax porn, adult videos, xxx content, premium porn, erotic videos, free porn videos" />
-        <meta property="og:title" content="MeliaX Porn - Free Adult Videos & Premium XXX Content" />
-        <meta property="og:description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content and premium adult videos." />
+        <title>MeliaX Nackt - Exklusive Nacktbilder & Videos | MeliaX</title>
+        <meta name="description" content="Schaue exklusive MeliaX Nacktbilder und Videos. Die heißesten Nacktaufnahmen und private Einblicke von MeliaX. Täglich neue Updates." />
+        <meta name="keywords" content="meliax nackt, nacktbilder, nacktvideos, meliax nacktfotos, meliax privat, meliax exklusiv" />
+        <meta property="og:title" content="MeliaX Nackt - Exklusive Nacktbilder & Videos" />
+        <meta property="og:description" content="Exklusive MeliaX Nacktbilder und Videos. Die heißesten Aufnahmen und private Einblicke." />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="MeliaX Porn" />
+        <meta property="og:site_name" content="MeliaX Nackt" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com" />
+        <link rel="canonical" href="https://meliax.com/meliax-nackt" />
       </Head>
 
       <Navbar 
@@ -93,4 +93,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
+} 

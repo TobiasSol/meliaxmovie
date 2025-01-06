@@ -5,14 +5,14 @@ import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
 
-export default function Home() {
+export default function NudesPage() {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const categories = [
-    'All', 'Latest', 'Popular', 'Custom', 'Exclusive', 'Premium'
+    'All', 'Latest', 'Popular', 'Exclusive', 'Premium'
   ];
 
   useEffect(() => {
@@ -36,16 +36,16 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Porn - Free Adult Videos & Premium XXX Content | MeliaX</title>
-        <meta name="description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content, premium adult videos, and exclusive erotic content. New videos added daily." />
-        <meta name="keywords" content="meliax porn, adult videos, xxx content, premium porn, erotic videos, free porn videos" />
-        <meta property="og:title" content="MeliaX Porn - Free Adult Videos & Premium XXX Content" />
-        <meta property="og:description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content and premium adult videos." />
+        <title>MeliaX Nudes - Exclusive Nude Pictures & Videos | MeliaX</title>
+        <meta name="description" content="Watch exclusive MeliaX nudes and private content. Access the hottest nude pictures and videos from MeliaX. Daily updates and premium content." />
+        <meta name="keywords" content="meliax nudes, nude pictures, nude videos, meliax nude content, meliax private pics, meliax exclusive" />
+        <meta property="og:title" content="MeliaX Nudes - Exclusive Nude Pictures & Videos" />
+        <meta property="og:description" content="Watch exclusive MeliaX nudes and private content. The hottest nude pictures and videos." />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="MeliaX Porn" />
+        <meta property="og:site_name" content="MeliaX Nudes" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com" />
+        <link rel="canonical" href="https://meliax.com/meliax-nudes" />
       </Head>
 
       <Navbar 
@@ -93,4 +93,4 @@ export default function Home() {
       </main>
     </div>
   );
-}
+} 
