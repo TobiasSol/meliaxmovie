@@ -36,9 +36,9 @@ export default function LeaksPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Leaks - Exclusive Leaked Content & Private Videos | MeliaX</title>
-        <meta name="description" content="Watch exclusive MeliaX leaked content, private videos and premium material. Access the largest collection of MeliaX leaks and private content." />
-        <meta name="keywords" content="meliax leaks, leaked content, private videos, exclusive leaks, meliax private content, meliax premium" />
+        <title>MeliaX Leaks - Exklusive Inhalte & Private Videos | Offizielle Seite</title>
+        <meta name="description" content="Entdecke MeliaX Leaks mit exklusiven Inhalten und privaten Videos. Täglich neue Updates, Premium-Material und unveröffentlichte Aufnahmen. Jetzt Zugang sichern!" />
+        <meta name="keywords" content="meliax leaks, meliax exklusiv, meliax private videos, meliax premium content, meliax leaked content, meliax unveröffentlicht" />
         <meta property="og:title" content="MeliaX Leaks - Exclusive Leaked Content & Private Videos" />
         <meta property="og:description" content="Watch exclusive MeliaX leaked content and private videos. Premium leaked material." />
         <meta property="og:type" content="website" />

@@ -17,9 +17,9 @@ export default function OnlyFansPage() {
   return (
     <div className="min-h-screen bg-[#00AFF0]/5 text-white">
       <Head>
-        <title>MeliaX OnlyFans - Exclusive Adult Content & Private Shows | Official OF</title>
-        <meta name="description" content="Join MeliaX's Official OnlyFans for exclusive adult content, private shows, and personal interaction. Get access to premium photos, videos, and live streams." />
-        <meta name="keywords" content="meliax onlyfans, adult content creator, exclusive content, premium adult content, onlyfans model, meliax of" />
+        <title>MeliaX OnlyFans - Exklusive Inhalte & Shows | Offizielle Seite</title>
+        <meta name="description" content="Folge MeliaX auf OnlyFans für exklusive Inhalte, private Shows und persönliche Interaktion. Premium-Content, exklusive Fotos und Videos. Jetzt Subscriber werden!" />
+        <meta name="keywords" content="meliax onlyfans, meliax of, meliax premium, meliax exclusive content, meliax onlyfans model, meliax subscriber content" />
         <meta property="og:title" content="MeliaX OnlyFans - Exclusive Adult Content & Private Shows" />
         <meta property="og:description" content="Join MeliaX's Official OnlyFans for exclusive content and private shows. Premium adult entertainment." />
         <meta property="og:type" content="website" />

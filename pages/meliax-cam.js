@@ -17,9 +17,9 @@ export default function CamPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Live Cams - Watch Hot Live Cam Shows & Adult Webcams | MeliaX</title>
-        <meta name="description" content="Join live adult webcam shows on MeliaX Cams. Watch hot cam models perform live, chat in real-time, and enjoy exclusive private shows. Best live adult entertainment." />
-        <meta name="keywords" content="meliax cam, live cams, adult webcams, cam shows, live sex cams, webcam models, live adult chat" />
+        <title>MeliaX Cam - Live Webcam Shows & Private Chats | Offizielle Seite</title>
+        <meta name="description" content="Erlebe MeliaX Cam mit exklusiven Live-Webcam-Shows und privaten Chat-Sessions. Tägliche Live-Streams, interaktive Shows und intime Einblicke. Jetzt kostenlos dabei sein!" />
+        <meta name="keywords" content="meliax cam, meliax webcam, meliax live shows, meliax private chat, meliax cam model, meliax live streams" />
         <meta property="og:title" content="MeliaX Live Cams - Watch Hot Live Cam Shows & Adult Webcams" />
         <meta property="og:description" content="Join live adult webcam shows on MeliaX Cams. Watch hot cam models perform live and chat in real-time." />
         <meta property="og:type" content="website" />

@@ -36,9 +36,9 @@ export default function SexPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Sex Videos - Exklusive Sex Clips & Private Shows | MeliaX</title>
-        <meta name="description" content="Schaue exklusive MeliaX Sex Videos und private Shows. Die heißesten Sex Clips und intime Einblicke von MeliaX. Täglich neue Updates." />
-        <meta name="keywords" content="meliax sex, sex videos, private shows, meliax clips, meliax privat, meliax exklusiv" />
+        <title>MeliaX Sex - Exklusive Videos & Private Shows | Offizielle Seite</title>
+        <meta name="description" content="Entdecke MeliaX Sex mit exklusiven Videos und privaten Shows. Premium-Content, intime Einblicke und tägliche Updates. Jetzt Zugang sichern!" />
+        <meta name="keywords" content="meliax sex, meliax sex videos, meliax private shows, meliax adult content, meliax explicit, meliax xxx" />
         <meta property="og:title" content="MeliaX Sex Videos - Exklusive Sex Clips & Private Shows" />
         <meta property="og:description" content="Exklusive MeliaX Sex Videos und private Shows. Die heißesten Clips und intime Einblicke." />
         <meta property="og:type" content="website" />

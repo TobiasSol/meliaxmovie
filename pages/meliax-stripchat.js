@@ -17,9 +17,9 @@ export default function StripchatPage() {
   return (
     <div className="min-h-screen bg-[#E72C4B]/5 text-white">
       <Head>
-        <title>MeliaX Stripchat - Watch Live Adult Cam Shows | Official Stripchat</title>
-        <meta name="description" content="Join MeliaX's official Stripchat room for exclusive live adult cam shows. Watch real-time performances, interact live, and enjoy private shows. Best live adult entertainment." />
-        <meta name="keywords" content="meliax stripchat, stripchat model, live cam shows, adult webcam, meliax live cam, stripchat live, adult streaming" />
+        <title>MeliaX Stripchat - Live Cam Shows & Private Chats | Offizielle Seite</title>
+        <meta name="description" content="Besuche MeliaX auf Stripchat für exklusive Live-Cam-Shows und private Chats. Erlebe heiße Live-Unterhaltung, interaktive Shows und intime Momente. Jetzt kostenlos beitreten!" />
+        <meta name="keywords" content="meliax stripchat, stripchat meliax, meliax live cam, stripchat live shows, meliax private chat, stripchat model meliax" />
         <meta property="og:title" content="MeliaX Stripchat - Watch Live Adult Cam Shows" />
         <meta property="og:description" content="Join MeliaX's official Stripchat room for exclusive live adult cam shows and real-time interaction." />
         <meta property="og:type" content="website" />

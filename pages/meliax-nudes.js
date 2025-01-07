@@ -36,9 +36,9 @@ export default function NudesPage() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Nudes - Exclusive Nude Pictures & Videos | MeliaX</title>
-        <meta name="description" content="Watch exclusive MeliaX nudes and private content. Access the hottest nude pictures and videos from MeliaX. Daily updates and premium content." />
-        <meta name="keywords" content="meliax nudes, nude pictures, nude videos, meliax nude content, meliax private pics, meliax exclusive" />
+        <title>MeliaX Nudes - Premium Nacktbilder & Videos | Offizielle Seite</title>
+        <meta name="description" content="Genieße MeliaX Nudes mit exklusiven Nacktbildern und Videos. Premium-Content, private Aufnahmen und intime Einblicke. Täglich neue Updates!" />
+        <meta name="keywords" content="meliax nudes, meliax nude pics, meliax nude content, meliax nude videos, meliax premium nudes, meliax exclusive nudes" />
         <meta property="og:title" content="MeliaX Nudes - Exclusive Nude Pictures & Videos" />
         <meta property="og:description" content="Watch exclusive MeliaX nudes and private content. The hottest nude pictures and videos." />
         <meta property="og:type" content="website" />

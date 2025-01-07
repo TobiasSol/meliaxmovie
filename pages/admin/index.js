@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { BarChart, DollarSign, ShoppingBag, Users } from 'lucide-react';
 import AdminSettings from '../../components/AdminSettings';
 import VideoManagement from '../../components/VideoManagement';
+import AdminTabs from '../../components/AdminTabs';
 
 
 export default function AdminDashboard() {
@@ -83,6 +84,8 @@ export default function AdminDashboard() {
           </button>
         </div>
 
+        <AdminTabs activeTab="dashboard" />
+
         {/* Statistik-Karten */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <StatCard
@@ -135,21 +138,11 @@ export default function AdminDashboard() {
             </tbody>
           </table>
         </div>
-        <div>
-
-
-  <h1 className="text-2xl mt-24"></h1>
-  <VideoManagement />
-</div>
 
         <div className="mt-8">
           <h2 className="text-2xl font-bold text-[#e3cbaa] mb-6">Website Einstellungen</h2>
           <AdminSettings />
-
         </div>
-
-
-
 
       </div>
     </div>

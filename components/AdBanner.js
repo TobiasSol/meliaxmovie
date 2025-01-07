@@ -5,7 +5,7 @@ export default function AdBanner() {
     <div className="bg-gray-900 rounded-lg overflow-hidden mb-6">
       <div className="relative h-32 w-full">
         <Image
-          src="/videos/banner.jpg"
+          src="/api/placeholder/1920/320" // Verwende einen Placeholder statt banner.jpg
           alt="Advertisement"
           fill
           className="object-cover"

@@ -1,127 +1,67 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+// pages/api/admin/settings.js
+import { createClient } from '@supabase/supabase-js';
+import { withAuth } from '../../../utils/withAuth';
 
-export default function AdminSettings() {
-  const [settings, setSettings] = useState({
-    passwordprotectionenabled: false,
-    preloaderenabled: true,
-    sitepassword: ''
-  });
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const router = useRouter();
+const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL,
+  process.env.SUPABASE_SERVICE_ROLE_KEY
+);
 
-  useEffect(() => {
-    fetchSettings();
-  }, []);
+async function handler(req, res) {
+  console.log('Settings API called, method:', req.method);
+  
+  try {
+    switch (req.method) {
+      case 'GET':
+        const { data, error } = await supabase
+          .from('settings')
+          .select('*')
+          .single();
 
-  const fetchSettings = async () => {
-    try {
-      const response = await fetch('/api/admin/settings', {
-        headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        if (error) {
+          console.error('Supabase GET error:', error);
+          throw error;
         }
-      });
-      
-      if (!response.ok) throw new Error('Fehler beim Laden der Einstellungen');
-      
-      const data = await response.json();
-      setSettings(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
+
+        console.log('Settings data found:', data);
+        return res.status(200).json(data || {
+          passwordprotectionenabled: false,
+          preloaderenabled: true,
+          sitepassword: ''
+        });
+
+      case 'POST':
+        const settings = req.body;
+        console.log('Updating settings:', settings);
+
+        const { data: updated, error: updateError } = await supabase
+          .from('settings')
+          .upsert([{
+            id: 1,
+            ...settings,
+            updated_at: new Date().toISOString()
+          }])
+          .select()
+          .single();
+
+        if (updateError) {
+          console.error('Supabase POST error:', updateError);
+          throw updateError;
+        }
+
+        console.log('Settings updated:', updated);
+        return res.status(200).json(updated);
+
+      default:
+        return res.status(405).json({ message: 'Method not allowed' });
     }
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('/api/admin/settings', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        },
-        body: JSON.stringify(settings)
-      });
-
-      if (!response.ok) throw new Error('Fehler beim Speichern der Einstellungen');
-      
-      alert('Einstellungen erfolgreich gespeichert');
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  if (loading) return <div>Laden...</div>;
-  if (error) return <div>Fehler: {error}</div>;
-
-  return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">Admin Einstellungen</h1>
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block mb-2">
-            <input
-              type="checkbox"
-              checked={settings.passwordprotectionenabled}
-              onChange={(e) => setSettings({
-                ...settings,
-                passwordprotectionenabled: e.target.checked
-              })}
-              className="mr-2"
-            />
-            Passwortschutz aktivieren
-          </label>
-        </div>
-
-        <div>
-          <label className="block mb-2">
-            <input
-              type="checkbox"
-              checked={settings.preloaderenabled}
-              onChange={(e) => setSettings({
-                ...settings,
-                preloaderenabled: e.target.checked
-              })}
-              className="mr-2"
-            />
-            Preloader aktivieren
-          </label>
-        </div>
-
-        {settings.passwordprotectionenabled && (
-          <div>
-            <label className="block mb-2">
-              Seiten-Passwort:
-              <input
-                type="password"
-                value={settings.sitepassword}
-                onChange={(e) => setSettings({
-                  ...settings,
-                  sitepassword: e.target.value
-                })}
-                className="w-full p-2 border rounded"
-              />
-            </label>
-          </div>
-        )}
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-        >
-          Einstellungen speichern
-        </button>
-      </form>
-    </div>
-  );
+  } catch (error) {
+    console.error('Settings API error:', error);
+    return res.status(500).json({
+      message: 'Internal Server Error',
+      error: error.message
+    });
+  }
 }
 
-// Diese Seite nur serverseitig rendern
-export const getServerSideProps = async () => {
-  return {
-    props: {}
-  };
-};
+export default withAuth(handler);

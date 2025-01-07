@@ -15,6 +15,32 @@ export default function VideoGrid({ videos }) {
 
   const videoRef = useRef(null);
 
+
+// Füge den Authorization Header hinzu
+const fetchVideos = async () => {
+  try {
+    const token = localStorage.getItem('adminToken');
+    const response = await fetch('/api/admin/videos', {
+      headers: {
+        'Authorization': `Bearer ${token}`  // Füge den Token hinzu
+      }
+    });
+    if (response.ok) {
+      const data = await response.json();
+      setVideos(data);
+    }
+  } catch (error) {
+    console.error('Error fetching videos:', error);
+  } finally {
+    setLoading(false);
+  }
+};
+
+
+
+
+
+
   const handleVideoClick = (video, event) => {
     event.stopPropagation();
     

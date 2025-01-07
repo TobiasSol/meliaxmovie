@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://meliax.com/videos/example-video</loc>
+    <video:video>
+      <video:thumbnail_loc>https://meliax.com/thumbnails/example.jpg</video:thumbnail_loc>
+      <video:title>Beispiel Video Titel</video:title>
+      <video:description>Beispiel Video Beschreibung</video:description>
+      <video:content_loc>https://meliax.com/videos/example.mp4</video:content_loc>
+      <video:duration>600</video:duration>
+      <video:rating>4.5</video:rating>
+      <video:view_count>1000</video:view_count>
+      <video:publication_date>2024-03-20</video:publication_date>
+      <video:family_friendly>no</video:family_friendly>
+      <video:restriction relationship="allow">DE AT CH</video:restriction>
+      <video:requires_subscription>yes</video:requires_subscription>
+    </video:video>
+  </url>
+</urlset> 

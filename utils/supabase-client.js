@@ -6,23 +6,26 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-// Überprüfe ob die notwendigen Variablen vorhanden sind
-if (!supabaseUrl || !supabaseAnonKey || !supabaseServiceKey) {
-  console.error('Fehlende Supabase Umgebungsvariablen:', {
-    url: !!supabaseUrl,
-    anonKey: !!supabaseAnonKey,
-    serviceKey: !!supabaseServiceKey
-  });
-  throw new Error('Erforderliche Supabase Umgebungsvariablen fehlen');
+// Debug-Logging
+console.log('Supabase Environment Check:', {
+  hasUrl: !!supabaseUrl,
+  hasAnonKey: !!supabaseAnonKey,
+  hasServiceKey: !!supabaseServiceKey
+});
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Erforderliche öffentliche Supabase Umgebungsvariablen fehlen');
 }
 
 // Client für öffentliche Anfragen
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Client für Admin-Anfragen
-export const adminSupabase = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: {
-    autoRefreshToken: false,
-    persistSession: false
-  }
-});
+export const adminSupabase = supabaseServiceKey 
+  ? createClient(supabaseUrl, supabaseServiceKey, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false
+      }
+    })
+  : null;

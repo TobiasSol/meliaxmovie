@@ -15,19 +15,30 @@ export default function Home() {
     'All', 'Latest', 'Popular', 'Custom', 'Exclusive', 'Premium'
   ];
 
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     fetchVideos();
   }, []);
   
   const fetchVideos = async () => {
     try {
-      const response = await fetch('/api/admin/videos');
+      setLoading(true);
+      setError(null);
+      const response = await fetch('/api/admin/videos', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('adminToken')}`
+        }
+      });
       if (response.ok) {
         const data = await response.json();
         setVideos(data);
+      } else {
+        throw new Error(`HTTP error! status: ${response.status}`);
       }
     } catch (error) {
       console.error('Error fetching videos:', error);
+      setError('Fehler beim Laden der Videos');
     } finally {
       setLoading(false);
     }
@@ -36,13 +47,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       <Head>
-        <title>MeliaX Porn - Free Adult Videos & Premium XXX Content | MeliaX</title>
-        <meta name="description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content, premium adult videos, and exclusive erotic content. New videos added daily." />
-        <meta name="keywords" content="meliax porn, adult videos, xxx content, premium porn, erotic videos, free porn videos" />
-        <meta property="og:title" content="MeliaX Porn - Free Adult Videos & Premium XXX Content" />
-        <meta property="og:description" content="Watch high-quality adult videos on MeliaX. The best source for free XXX content and premium adult videos." />
+        <title>MeliaX Porn - Exklusive Pornos & Premium XXX Videos | Offizielle Seite</title>
+        <meta name="description" content="Genieße MeliaX Porn mit den heißesten Pornos und XXX Videos. Täglich neue exklusive Inhalte, Premium Adult Content und private Shows. Jetzt kostenlos ansehen!" />
+        <meta name="keywords" content="meliax porn, meliax pornos, meliax xxx, meliax adult videos, meliax premium porn, meliax exklusive pornos" />
+        <meta property="og:title" content="MeliaX Porn - Exklusive Pornos & Premium XXX Videos" />
+        <meta property="og:description" content="Entdecke MeliaX Porn mit exklusiven Pornos und XXX Videos. Die heißesten Adult Videos und Premium Content." />
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="MeliaX Porn" />
+        <meta property="og:site_name" content="MeliaX Porn Official" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="canonical" href="https://meliax.com" />
