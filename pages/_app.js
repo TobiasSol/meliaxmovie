@@ -14,10 +14,10 @@ function MyApp({ Component, pageProps }) {
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "MeliaX",
-              "url": "https://meliax.com",
+              "url": "https://meliax-porn.de",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://meliax.com/search?q={search_term_string}",
+                "target": "https://meliax-porn.de/search?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
