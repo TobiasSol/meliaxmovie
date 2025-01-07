@@ -1,15 +1,12 @@
-// utils/withAuth.js
 import { verify } from 'jsonwebtoken';
 
 export function withAuth(handler) {
   return async (req, res) => {
-    console.log('Auth middleware checking token');
-
     try {
+      // Check for authorization header
       const token = req.headers.authorization?.split(' ')[1];
       
       if (!token) {
-        console.log('No token found in request');
         return res.status(401).json({ message: 'Nicht autorisiert - Token fehlt' });
       }
 
@@ -19,14 +16,15 @@ export function withAuth(handler) {
       }
 
       try {
+        // Verify the JWT token
         const decoded = verify(token, process.env.JWT_SECRET);
         req.user = decoded;
-        console.log('Token verified successfully for user:', decoded.username);
       } catch (jwtError) {
         console.error('JWT verification failed:', jwtError);
         return res.status(401).json({ message: 'Ungültiger Token' });
       }
       
+      // If token is valid, proceed with the original request handler
       return handler(req, res);
     } catch (error) {
       console.error('Auth middleware error:', error);
