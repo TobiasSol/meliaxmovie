@@ -1,72 +1,113 @@
-// pages/api/admin/videos.js
 import { createClient } from '@supabase/supabase-js';
-import { withAuth } from '../../../utils/withAuth';
+import { verify } from 'jsonwebtoken';
 
+// Initialisiere Supabase Client einmal als Modul-Variable
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY,
-  {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false
-    }
-  }
+  process.env.SUPABASE_SERVICE_ROLE_KEY
 );
 
-async function handler(req, res) {
+export default async function handler(req, res) {
   try {
+    // Authentifizierung prüfen
+    const token = req.headers.authorization?.split(' ')[1];
+    if (!token) {
+      return res.status(401).json({ message: 'Nicht autorisiert - Token fehlt' });
+    }
+
+    // JWT verifizieren
+    try {
+      verify(token, process.env.JWT_SECRET);
+    } catch (error) {
+      return res.status(401).json({ message: 'Ungültiger Token' });
+    }
+
     switch (req.method) {
       case 'GET':
-        const { data, error: fetchError } = await supabase
-          .from('videos')
-          .select('*')
-          .order('created_at', { ascending: false });
+        try {
+          const { data, error } = await supabase
+            .from('videos')
+            .select('*')
+            .order('created_at', { ascending: false });
 
-        if (fetchError) throw fetchError;
-        return res.status(200).json(data);
+          if (error) throw error;
+          return res.status(200).json(data || []);
+        } catch (error) {
+          console.error('GET Error:', error);
+          throw error;
+        }
 
       case 'POST':
-        const { data: insertData, error: insertError } = await supabase
-          .from('videos')
-          .insert([req.body])
-          .select()
-          .single();
+        try {
+          if (!req.body?.title) {
+            return res.status(400).json({ message: 'Titel ist erforderlich' });
+          }
 
-        if (insertError) throw insertError;
-        return res.status(201).json(insertData);
+          const { data, error } = await supabase
+            .from('videos')
+            .insert([{
+              ...req.body,
+              created_at: new Date().toISOString()
+            }])
+            .select()
+            .single();
+
+          if (error) throw error;
+          return res.status(201).json(data);
+        } catch (error) {
+          console.error('POST Error:', error);
+          throw error;
+        }
 
       case 'PUT':
-        const videoId = req.query.id;
-        const { data: updateData, error: updateError } = await supabase
-          .from('videos')
-          .update(req.body)
-          .eq('id', videoId)
-          .select()
-          .single();
+        try {
+          if (!req.query.id) {
+            return res.status(400).json({ message: 'Video ID ist erforderlich' });
+          }
 
-        if (updateError) throw updateError;
-        return res.status(200).json(updateData);
+          const { data, error } = await supabase
+            .from('videos')
+            .update({
+              ...req.body,
+              updated_at: new Date().toISOString()
+            })
+            .eq('id', req.query.id)
+            .select()
+            .single();
+
+          if (error) throw error;
+          return res.status(200).json(data);
+        } catch (error) {
+          console.error('PUT Error:', error);
+          throw error;
+        }
 
       case 'DELETE':
-        const id = req.query.id;
-        const { error: deleteError } = await supabase
-          .from('videos')
-          .delete()
-          .eq('id', id);
+        try {
+          if (!req.query.id) {
+            return res.status(400).json({ message: 'Video ID ist erforderlich' });
+          }
 
-        if (deleteError) throw deleteError;
-        return res.status(200).json({ message: 'Video erfolgreich gelöscht' });
+          const { error } = await supabase
+            .from('videos')
+            .delete()
+            .eq('id', req.query.id);
+
+          if (error) throw error;
+          return res.status(200).json({ message: 'Video erfolgreich gelöscht' });
+        } catch (error) {
+          console.error('DELETE Error:', error);
+          throw error;
+        }
 
       default:
-        return res.status(405).json({ message: 'Methode nicht erlaubt' });
+        return res.status(405).json({ message: 'Method not allowed' });
     }
   } catch (error) {
-    console.error('API Fehler:', error);
+    console.error('API Error:', error);
     return res.status(500).json({ 
       message: 'Interner Server Fehler',
-      error: error.message 
+      error: error.message || 'Unbekannter Fehler'
     });
   }
 }
-
-export default withAuth(handler);

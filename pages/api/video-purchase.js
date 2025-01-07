@@ -1,4 +1,4 @@
-import withAuth from '../../utils/withAuth';
+import { withAuth } from '../../utils/withAuth';
 import Stripe from 'stripe';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
