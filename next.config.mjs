@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: [
-      'http://supabasekong-gk88gkscso84o4sc408kkkog.145.223.103.147.sslip.io/',
+      'supabasekong-gk88gkscso84o4sc408kkkog.145.223.103.147.sslip.io',
       'meliax-porn.de'
     ],
     formats: ['image/avif', 'image/webp'],
