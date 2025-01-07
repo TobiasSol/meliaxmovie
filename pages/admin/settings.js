@@ -1,6 +1,6 @@
-// pages/api/admin/settings.js
+// pages/admin/settings.js
 import { createClient } from '@supabase/supabase-js';
-import { withAuth } from '../../../utils/withAuth';
+import withAuth from '../../../utils/withAuth';
 
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,

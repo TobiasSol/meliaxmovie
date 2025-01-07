@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     domains: [
       'http://supabasekong-gk88gkscso84o4sc408kkkog.145.223.103.147.sslip.io/',
-      'meliax.com'
+      'meliax-porn.de'
     ],
     formats: ['image/avif', 'image/webp'],
   },
