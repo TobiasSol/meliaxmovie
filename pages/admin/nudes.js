@@ -6,6 +6,7 @@ import ImageGalleryManager from '../../components/ImageGalleryManager';
 export default function AdminNudes() {
   const router = useRouter();
 
+
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
     if (!token) {
@@ -21,8 +22,8 @@ export default function AdminNudes() {
         </div>
 
         <AdminTabs activeTab="nudes" />
-        <ImageGalleryManager />
+        <ImageGalleryManager bucketName="nudes" />
       </div>
     </div>
   );
-} 
+}

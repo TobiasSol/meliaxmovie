@@ -26,7 +26,7 @@ export default function OnlyFansPage() {
         <meta property="og:site_name" content="MeliaX OnlyFans" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com/meliax-onlyfans" />
+        <link rel="canonical" href="https://meliax-porn.de/meliax-onlyfans" />
       </Head>
 
       <Navbar 

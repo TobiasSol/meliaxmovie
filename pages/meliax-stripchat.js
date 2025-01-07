@@ -26,7 +26,7 @@ export default function StripchatPage() {
         <meta property="og:site_name" content="MeliaX Stripchat" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com/meliax-stripchat" />
+        <link rel="canonical" href="https://meliax-porn.de/meliax-stripchat" />
       </Head>
 
       <Navbar 

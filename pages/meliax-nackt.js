@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
+import ImageGallery from "../components/ImageGallery";
 
 export default function NacktPage() {
   const [videos, setVideos] = useState([]);
@@ -45,7 +46,7 @@ export default function NacktPage() {
         <meta property="og:site_name" content="MeliaX Nackt" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com/meliax-nackt" />
+        <link rel="canonical" href="https://meliax-porn.de/meliax-nackt" />
       </Head>
 
       <Navbar 
@@ -77,10 +78,16 @@ export default function NacktPage() {
         {/* Ad Banner */}
         <AdBanner />
 
-        {/* Main Content */}
+        {/* Bilder Galerie */}
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold mb-4">MeliaX Nacktbilder</h2>
+          <ImageGallery />
+        </div>
+
+        {/* Videos */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Videos */}
           <div className="col-span-12">
+            <h2 className="text-2xl font-bold mb-4">MeliaX Nacktvideos</h2>
             {loading ? (
               <div className="text-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>

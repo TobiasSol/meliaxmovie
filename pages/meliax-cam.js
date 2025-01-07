@@ -26,7 +26,7 @@ export default function CamPage() {
         <meta property="og:site_name" content="MeliaX Cams" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com/meliax-cam" />
+        <link rel="canonical" href="https://meliax-porn.de/meliax-cam" />
       </Head>
 
       <Navbar 

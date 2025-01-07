@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
+import ImageGallery from "../components/ImageGallery";
 
 export default function LeaksPage() {
   const [videos, setVideos] = useState([]);
@@ -13,6 +14,65 @@ export default function LeaksPage() {
 
   const categories = [
     'All', 'Latest', 'Popular', 'Exclusive', 'Premium'
+  ];
+
+  const images = [
+    {
+      src: '/leaks/meliax leak (1).jpg',
+      alt: 'MeliaX exklusive Leaks und private Aufnahmen - Premium Content'
+    },
+    {
+      src: '/leaks/meliax leak (2).jpg',
+      alt: 'MeliaX Premium Leaks und unveröffentlichte Bilder - Exklusiv Material'
+    },
+    {
+      src: '/leaks/meliax leak (3).jpg',
+      alt: 'MeliaX private Sammlung - Leaked Content'
+    },
+    {
+      src: '/leaks/meliax leak (4).jpg',
+      alt: 'MeliaX unveröffentlichte Premium Fotos - Exclusive Collection'
+    },
+    {
+      src: '/leaks/meliax leak (5).jpg',
+      alt: 'MeliaX private Leaks - Neue Aufnahmen'
+    },
+    {
+      src: '/leaks/meliax leak (6).jpg',
+      alt: 'MeliaX exklusive Sammlung - Premium Leaks'
+    },
+    {
+      src: '/leaks/meliax leak (7).jpg',
+      alt: 'MeliaX private Galerie - Exklusive Einblicke'
+    },
+    {
+      src: '/leaks/meliax leak (8).jpg',
+      alt: 'MeliaX Premium Content - Neue Leaks'
+    },
+    {
+      src: '/leaks/meliax leak (9).jpg',
+      alt: 'MeliaX unveröffentlichte Leaks - Private Collection'
+    },
+    {
+      src: '/leaks/meliax leak (10).jpg',
+      alt: 'MeliaX exklusive Updates - Premium Galerie'
+    },
+    {
+      src: '/leaks/meliax leak (11).jpg',
+      alt: 'MeliaX private Premium Leaks - Neue Bilder'
+    },
+    {
+      src: '/leaks/meliax leak (12).jpg',
+      alt: 'MeliaX Leak Collection - Exklusive Aufnahmen'
+    },
+    {
+      src: '/leaks/meliax leak (13).jpg',
+      alt: 'MeliaX Premium Bildergalerie - Private Leaks'
+    },
+    {
+      src: '/leaks/meliax leak (14).jpg',
+      alt: 'MeliaX exklusive Premium Leaks - Neue Updates'
+    }
   ];
 
   useEffect(() => {
@@ -45,7 +105,7 @@ export default function LeaksPage() {
         <meta property="og:site_name" content="MeliaX Leaks" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com/meliax-leaks" />
+        <link rel="canonical" href="https://meliax-porn.de/meliax-leaks" />
       </Head>
 
       <Navbar 
@@ -79,8 +139,8 @@ export default function LeaksPage() {
 
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Videos */}
-          <div className="col-span-12">
+          {/* Videos Section */}
+          <div className="col-span-12 mb-8">
             {loading ? (
               <div className="text-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
@@ -88,6 +148,11 @@ export default function LeaksPage() {
             ) : (
               <VideoGrid videos={videos} />
             )}
+          </div>
+
+          {/* Images Section */}
+          <div className="col-span-12">
+            <ImageGallery images={images} />
           </div>
         </div>
       </main>

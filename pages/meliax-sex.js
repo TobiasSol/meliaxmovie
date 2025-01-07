@@ -4,9 +4,11 @@ import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
+import ImageGallery from "../components/ImageGallery";
 
 export default function SexPage() {
   const [videos, setVideos] = useState([]);
+  const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -15,8 +17,16 @@ export default function SexPage() {
     'All', 'Latest', 'Popular', 'Exclusive', 'Premium'
   ];
 
+  const sexImages = Array.from({length: 15}, (_, i) => ({
+    id: i + 1,
+    src: `/leaks/meliax leak (${i + 1}).jpg`,
+    alt: `MeliaX Sex Bild ${i + 1}`,
+    title: `MeliaX Sex ${i + 1}`
+  }));
+
   useEffect(() => {
     fetchVideos();
+    setImages(sexImages);
   }, []);
   
   const fetchVideos = async () => {
@@ -45,7 +55,7 @@ export default function SexPage() {
         <meta property="og:site_name" content="MeliaX Sex" />
         <meta name="robots" content="index, follow" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="canonical" href="https://meliax.com/meliax-sex" />
+        <link rel="canonical" href="https://meliax-porn.de/meliax-sex" />
       </Head>
 
       <Navbar 
@@ -58,7 +68,6 @@ export default function SexPage() {
       />
       
       <main className="md:ml-64 pt-24 px-4 md:px-8 py-6">
-        {/* Rest des Layouts wie bei den anderen Seiten */}
         <div className="mb-6 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
           {categories.map((category) => (
             <button
@@ -77,7 +86,13 @@ export default function SexPage() {
         <AdBanner />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+          <div className="col-span-12 mb-8">
+            <h2 className="text-2xl font-bold mb-4">MeliaX Sex Bilder</h2>
+            <ImageGallery images={images} />
+          </div>
+          
           <div className="col-span-12">
+            <h2 className="text-2xl font-bold mb-4">MeliaX Sex Videos</h2>
             {loading ? (
               <div className="text-center py-12">
                 <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
