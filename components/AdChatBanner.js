@@ -104,7 +104,7 @@ export default function AdChatBanner() {
                 </h3>
 
                 {/* OF Logo mit Glanz-Effekt */}
-                <div className="relative w-48 h-16 transform hover:scale-105 transition-transform duration-300 -mt-6">
+                <div className="relative w-48 h-16 transform hover:scale-105 transition-transform duration-300 -mt-4">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#e3cbaa20] to-transparent animate-shine" />
                   <Image
                     src="/Banner/OnlyFans_logo.png"
@@ -218,7 +218,7 @@ export default function AdChatBanner() {
               </h3>
 
               {/* OF Logo mit Glanz-Effekt */}
-              <div className="relative w-48 h-16 transform hover:scale-105 transition-transform duration-300 -mt-6">
+              <div className="relative w-48 h-16 transform hover:scale-105 transition-transform duration-300 -mt-3">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#e3cbaa20] to-transparent animate-shine" />
                 <Image
                   src="/Banner/OnlyFans_logo.png"
