@@ -23,6 +23,20 @@ function MyApp({ Component, pageProps }) {
             })
           }}
         />
+        <script 
+          async 
+          src="https://www.googletagmanager.com/gtag/js?id=G-B23M77814R"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-B23M77814R');
+            `
+          }}
+        />
       </Head>
       <AgeVerificationPreloader />
       <Component {...pageProps} />
