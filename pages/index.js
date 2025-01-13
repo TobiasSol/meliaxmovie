@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import VideoGrid from "../components/VideoGrid";
-import AdBanner from "../components/AdBanner";
+import AdChatBanner from "../components/AdChatBanner";
 
 export default function Home() {
   const [videos, setVideos] = useState([]);
@@ -86,7 +86,7 @@ export default function Home() {
         </div>
 
         {/* Ad Banner */}
-        <AdBanner />
+        <AdChatBanner />
 
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
