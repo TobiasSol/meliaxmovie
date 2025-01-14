@@ -21,7 +21,7 @@ export default function AdChatBanner() {
       {/* Pfeil-Button mit OnlyFans Logo */}
       <button
         onClick={toggleBanner}
-        className={`fixed md:right-[3%] md:top-[40%] right-0 top-[80px] md:-translate-y-1/3 z-50 bg-black border-2 border-[#e3cbaa] text-[#e3cbaa] rounded-l-lg hover:bg-[#e3cbaa] hover:text-black transition-all duration-300 flex items-center gap-3 pl-4 pr-3 py-3 ${
+        className={`fixed md:right-[3%] md:top-[40%] right-0 top-[180px] md:-translate-y-1/3 z-50 bg-black border-2 border-[#e3cbaa] text-[#e3cbaa] rounded-l-lg hover:bg-[#e3cbaa] hover:text-black transition-all duration-300 flex items-center gap-3 pl-4 pr-3 py-3 ${
           isVisible ? 'hidden' : 'block'
         }`}
       >
@@ -63,9 +63,24 @@ export default function AdChatBanner() {
           {/* Schließen Button */}
           <button 
             onClick={toggleBanner}
-            className="absolute -left-10 -top-10 max-[460px]:left-[80px] max-[460px]:top-[0px] w-8 h-8 max-[460px]:w-6 max-[460px]:h-6 rounded-full bg-black border-2 border-[#e3cbaa] text-[#e3cbaa] flex items-center justify-center hover:bg-[#e3cbaa] hover:text-black transition-all duration-300 group z-50"
+            className={`absolute -left-10 -top-10 max-[460px]:left-[80px] max-[460px]:top-[0px] w-10 h-10 max-[460px]:w-8 max-[460px]:h-8 rounded-full bg-black border-2 border-[#e3cbaa] text-[#e3cbaa] flex items-center justify-center hover:bg-[#e3cbaa] hover:text-black transition-all duration-300 group z-50 shadow-lg ${
+              !isVisible ? 'hidden' : ''
+            }`}
           >
-            <span className="transform group-hover:rotate-180 transition-transform duration-300 text-2xl max-[460px]:text-xl">×</span>
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="w-6 h-6 max-[460px]:w-5 max-[460px]:h-5 transform group-hover:rotate-180 transition-all duration-300" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+              strokeWidth={2.5}
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
           </button>
 
           {/* Desktop Neon-Rahmen */}

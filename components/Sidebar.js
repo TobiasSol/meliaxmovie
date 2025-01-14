@@ -30,7 +30,7 @@ export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const sidebarContent = (
     <>
       <div className="mb-8">
-        <h3 className="text-gray-400 text-sm font-medium mb-2 px-6">Menu</h3>
+        <h3 className="text-gray-400 text-sm font-medium mb-24 px-6">Menu</h3>
         {menuItems.map((item, index) => (
           <Link 
             key={index} 

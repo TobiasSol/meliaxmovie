@@ -1,1 +1,0 @@
-// Hier kommt der komplette Maloum Banner Code hin 

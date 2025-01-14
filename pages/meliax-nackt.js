@@ -76,10 +76,10 @@ export default function NacktPage() {
         </div>
 
         {/* Ad Banner */}
-        <AdBanner />
+       
 
         {/* Bilder Galerie */}
-        <div className="mb-8">
+        <div className="mb-8 mt-12">
           <h2 className="text-2xl font-bold mb-4">MeliaX Nacktbilder</h2>
           <ImageGallery />
         </div>
