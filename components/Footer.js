@@ -1,103 +1,74 @@
-import { useState } from 'react';
 import Link from 'next/link';
-import { Instagram, Twitch, Twitter } from 'lucide-react';
+import { FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
+import AdBannerFooter from './AdBannerFooter';
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
-
-  const handleNewsletterSubmit = async (e) => {
-    e.preventDefault();
-    // Newsletter Logic hier implementieren
-    console.log('Newsletter signup:', email);
-    setEmail('');
-  };
-
   return (
-    <footer className="bg-black text-white border-[#d0b48f]">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Newsletter Signup */}
-          <div>
-            <h3 className="text-xl font-bold text-[#e3cbaa] mb-4">Newsletter</h3>
-            <form onSubmit={handleNewsletterSubmit}>
-              <div className="flex gap-2">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Deine E-Mail Adresse"
-                  className="flex-1 px-4 py-2 bg-black border border-[#d0b48f] rounded"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="px-4 py-2 bg-[#d0b48f] text-black rounded hover:bg-[#e3cbaa]"
+    <footer className="bg-black/80 backdrop-blur-sm border-t border-white/10 mt-16">
+      <div className="main-content">
+        <AdBannerFooter />
+        <div className="py-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            {/* Logo und Social Links */}
+            <div className="space-y-4">
+              <Link href="/" className="block">
+                <span className="text-xl font-bold text-red-600">MeliaX-porn</span>
+              </Link>
+              <div className="flex space-x-4">
+                <a 
+                  href="https://www.instagram.com/me.lia.x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 hover:text-red-600 transition-colors"
                 >
-                  Anmelden
-                </button>
+                  <FaInstagram size={24} />
+                </a>
+                <a 
+                  href="https://www.tiktok.com/@me.lia.x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 hover:text-red-600 transition-colors"
+                >
+                  <FaTiktok size={24} />
+                </a>
+                <a 
+                  href="https://twitter.com/me_lia_x"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-red-500 hover:text-red-600 transition-colors"
+                >
+                  <FaTwitter size={24} />
+                </a>
               </div>
-            </form>
-          </div>
+            </div>
 
-          {/* Social Media Links */}
-          <div>
-            <h3 className="text-xl font-bold text-[#e3cbaa] mb-4">Social Media</h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#d0b48f] hover:text-[#e3cbaa]"
-              >
-                <Instagram size={24} />
-              </a>
-              <a
-                href="https://twitch.tv"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#d0b48f] hover:text-[#e3cbaa]"
-              >
-                <Twitch size={24} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#d0b48f] hover:text-[#e3cbaa]"
-              >
-                <Twitter size={24} />
-              </a>
+            {/* Links */}
+            <div>
+              <h3 className="text-lg font-semibold mb-4 text-red-500">Links</h3>
+              <ul className="space-y-2">
+                <li>
+                  <Link href="/impressum" className="text-gray-400 hover:text-red-500 transition-colors">
+                    Impressum
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/datenschutz" className="text-gray-400 hover:text-red-500 transition-colors">
+                    Datenschutz
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/agb" className="text-gray-400 hover:text-red-500 transition-colors">
+                    AGB
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
 
-          {/* Legal Links */}
-          <div>
-            <h3 className="text-xl font-bold text-[#e3cbaa] mb-4">Rechtliches</h3>
-            <div className="space-y-2">
-              <Link
-                href="/impressum"
-                className="block text-[#d0b48f] hover:text-[#e3cbaa]"
-              >
-                Impressum
-              </Link>
-              <Link
-                href="/datenschutz"
-                className="block text-[#d0b48f] hover:text-[#e3cbaa]"
-              >
-                Datenschutz
-              </Link>
-              <Link
-                href="/agb"
-                className="block text-[#d0b48f] hover:text-[#e3cbaa]"
-              >
-                AGB
-              </Link>
-            </div>
+          {/* Copyright */}
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            <p>&copy; {new Date().getFullYear()} MeliaX-porn. Alle Rechte vorbehalten.</p>
           </div>
-        </div>
-
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center text-[#d0b48f]">
-          © {new Date().getFullYear()} Meliax. Alle Rechte vorbehalten.
         </div>
       </div>
     </footer>

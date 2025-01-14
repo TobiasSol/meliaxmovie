@@ -117,25 +117,12 @@ export default function LeaksPage() {
         setIsMobileMenuOpen={setIsMobileMenuOpen} 
       />
       
-      <main className="md:ml-64 pt-24 px-4 md:px-8 py-6">
+      <main className="md:ml-64 pt-4 px-4 md:px-8 py-6">
         {/* Categories */}
-        <div className="mb-6 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category.toLowerCase())}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap
-                ${selectedCategory === category.toLowerCase()
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-red-600/20'}`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+       
 
         {/* Ad Banner */}
-        <AdBanner />
+ 
 
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -155,6 +142,90 @@ export default function LeaksPage() {
             <ImageGallery images={images} />
           </div>
         </div>
+
+        {/* SEO Artikel */}
+        <article className="mt-16 prose prose-invert max-w-none">
+          <h1 className="text-3xl font-bold mb-6">MeliaX Leaks: Exklusive Einblicke und private Momente</h1>
+          
+          <p className="mb-4">
+            Die MeliaX Leaks Sammlung bietet authentische und unbearbeitete Einblicke in private Momente. 
+            Als eine der meistgesuchten Content-Creatorinnen Deutschlands gewährt MeliaX hier ausgewählte 
+            Blicke hinter die Kulissen ihrer Produktionen.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Authentische Behind-the-Scenes Einblicke</h2>
+          <p className="mb-4">
+            Die Leaks-Sammlung umfasst verschiedene Kategorien von Insider-Content:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Unveröffentlichte Aufnahmen aus Fotoshootings</li>
+            <li>Spontane Handy-Aufnahmen</li>
+            <li>Private Schnappschüsse</li>
+            <li>Unbearbeitetes Rohmaterial</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Exklusive Sammler-Editionen</h2>
+          <p className="mb-4">
+            Premium-Mitglieder erhalten Zugang zu besonderen Leak-Kollektionen:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Rare Behind-the-Scenes Footage</li>
+            <li>Unveröffentlichte Serien</li>
+            <li>Alternative Takes</li>
+            <li>Verworfene Szenen</li>
+            <li>Making-of Material</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Authentizität und Qualität</h2>
+          <p className="mb-4">
+            Jeder Leak wird sorgfältig kuratiert und geprüft:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>100% authentisches Material</li>
+            <li>Unbearbeitete Originalaufnahmen</li>
+            <li>Hochauflösende Qualität</li>
+            <li>Zeitlich eingeordnete Inhalte</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Regelmäßige Leak-Drops</h2>
+          <p className="mb-6">
+            Die Leak-Sammlung wird kontinuierlich erweitert:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Wöchentliche neue Leaks</li>
+            <li>Überraschungs-Drops</li>
+            <li>Thematische Leak-Wochen</li>
+            <li>Seltene Archiv-Funde</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Exklusive Mitgliedervorteile</h2>
+          <p className="mb-4">
+            VIP-Mitglieder genießen besondere Privilegien:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Frühzeitiger Zugang zu neuen Leaks</li>
+            <li>Zugriff auf das komplette Leak-Archiv</li>
+            <li>Download in Originalqualität</li>
+            <li>Exklusive Sammlerstücke</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Sicherheit und Vertraulichkeit</h2>
+          <p className="mb-4">
+            Höchste Sicherheitsstandards für alle Mitglieder:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Verschlüsselte Übertragung</li>
+            <li>Geschützter Memberbereich</li>
+            <li>Diskrete Zahlungsabwicklung</li>
+            <li>Anonymer Zugang</li>
+          </ul>
+
+          <p className="text-sm text-gray-400 mt-8">
+            Wichtiger Hinweis: Der Zugang zu MeliaX Leaks ist ausschließlich für Erwachsene (18+) gestattet. 
+            Alle Inhalte sind urheberrechtlich geschützt und dürfen nicht ohne ausdrückliche Genehmigung 
+            weiterverbreitet werden. Bei Missbrauch behält sich MeliaX rechtliche Schritte vor.
+          </p>
+        </article>
       </main>
     </div>
   );

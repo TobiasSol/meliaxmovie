@@ -2,57 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply bg-black text-white;
-  font-family: 'Evogria', sans-serif;
+@layer base {
+  body {
+    @apply bg-black text-white overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .shine-effect {
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+  
+  .main-content {
+    @apply md:ml-64 xl:mr-72 pt-20 px-4 md:px-8 pb-12 w-full max-w-6xl mx-auto;
+  }
 }
 
 /* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
+@layer utilities {
+  .scrollbar-custom {
+    scrollbar-width: thin;
+    scrollbar-color: theme('colors.pink.500') theme('colors.gray.900');
+  }
 
-::-webkit-scrollbar-track {
-  @apply bg-gray-900;
-}
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 6px;
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: #d0b48f;
-  @apply rounded-full;
-}
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: theme('colors.gray.900');
+  }
 
-/* Form Elements */
-input[type="checkbox"], select {
-  border-color: #d0b48f;
-  @apply rounded;
-}
-
-input[type="checkbox"]:checked {
-  background-color: #e3cbaa;
-}
-
-/* Animation */
-@keyframes noise {
-  0%, 100% { transform: translate(0,0) }
-  10% { transform: translate(-5%,-5%) }
-  20% { transform: translate(-10%,5%) }
-  30% { transform: translate(5%,-10%) }
-  40% { transform: translate(-5%,15%) }
-  50% { transform: translate(-10%,5%) }
-  60% { transform: translate(15%,0) }
-  70% { transform: translate(0,10%) }
-  80% { transform: translate(-15%,0) }
-  90% { transform: translate(10%,5%) }
-}
-
-.noise-effect {
-  position: absolute;
-  top: -500%;
-  left: -500%;
-  right: -500%;
-  bottom: -500%;
-  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyBAMAAADsEZWCAAAAGFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMABA+AAAACHRSTlMzMzMzMzMzM85JBgUAAAABYktHRAH/Ai3eAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAPklEQVQ4y2NgGAWjYBSMglEwCkYBKeBUYmBgWsHA8B8KFBkYtBgY/v+HgkYGhgoGhv//ocCBgYGBYRQMNQAAPn0VK6HhJx8AAAAASUVORK5CYII=');
-  opacity: 0.3;
-  animation: noise .2s infinite;
-  pointer-events: none;
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: theme('colors.pink.500');
+    border-radius: 20px;
+  }
 }

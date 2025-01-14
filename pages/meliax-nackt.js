@@ -58,22 +58,9 @@ export default function NacktPage() {
         setIsMobileMenuOpen={setIsMobileMenuOpen} 
       />
       
-      <main className="md:ml-64 pt-24 px-4 md:px-8 py-6">
+      <main className="md:ml-64 pt-4 px-4 md:px-8 py-6">
         {/* Categories */}
-        <div className="mb-6 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category.toLowerCase())}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap
-                ${selectedCategory === category.toLowerCase()
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-red-600/20'}`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+      
 
         {/* Ad Banner */}
        
@@ -97,6 +84,68 @@ export default function NacktPage() {
             )}
           </div>
         </div>
+
+        {/* SEO Artikel */}
+        <article className="mt-16 prose prose-invert max-w-none">
+          <h1 className="text-3xl font-bold mb-6">MeliaX Nackt: Exklusive Einblicke in intime Momente</h1>
+          
+          <p className="mb-4">
+            MeliaX präsentiert sich in ihrer Nacktgalerie von ihrer authentischsten und intimsten Seite. Die aufstrebende 
+            Content-Creatorin bietet ihren Fans exklusive Einblicke in private Momente und professionell produzierte 
+            Nacktaufnahmen, die durch ihre künstlerische Qualität und natürliche Ausstrahlung begeistern.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Vielfältige Nacktaufnahmen von MeliaX</h2>
+          <p className="mb-4">
+            Die Nacktbilder von MeliaX zeichnen sich durch ihre Vielfältigkeit aus. Von kunstvollen Aktaufnahmen bis hin 
+            zu spontanen Behind-the-Scenes Momenten bietet die Galerie:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Professionelle Studiofotografie mit künstlerischem Anspruch</li>
+            <li>Natürliche Aufnahmen in authentischer Umgebung</li>
+            <li>Exklusive Einblicke in private Fotoshootings</li>
+            <li>Regelmäßig aktualisierte Bildergalerie mit neuen Motiven</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Premium Qualität und künstlerischer Anspruch</h2>
+          <p className="mb-4">
+            MeliaX legt besonderen Wert auf die Qualität ihrer Nacktaufnahmen. Jedes Bild wird sorgfältig ausgewählt und 
+            professionell nachbearbeitet. Die Zusammenarbeit mit erfahrenen Fotografen garantiert:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Hochauflösende Bildqualität in 4K</li>
+            <li>Perfekte Ausleuchtung und Bildkomposition</li>
+            <li>Stimmungsvolle Settings und Locations</li>
+            <li>Regelmäßige Updates mit neuem Material</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Exklusive Vorteile für Premium-Mitglieder</h2>
+          <p className="mb-4">
+            Premium-Mitglieder genießen bei MeliaX besondere Privilegien und erhalten Zugang zu:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Unveröffentlichte Nacktbilder aus privaten Shootings</li>
+            <li>High-Resolution Downloads in voller Auflösung</li>
+            <li>Vorabzugang zu neuen Bildserien</li>
+            <li>Persönliche Wunsch-Shootings und Custom Content</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Regelmäßige Updates und neue Inhalte</h2>
+          <p className="mb-6">
+            Die Nacktgalerie von MeliaX wird kontinuierlich erweitert. Fans können sich freuen auf:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Wöchentliche Updates mit neuen Nacktbildern</li>
+            <li>Saisonale Specials und Themen-Shootings</li>
+            <li>Behind-the-Scenes Material von Fotoshootings</li>
+            <li>Exklusive Serien mit limitierter Verfügbarkeit</li>
+          </ul>
+
+          <p className="text-sm text-gray-400 mt-8">
+            Hinweis: Alle Inhalte sind ausschließlich für Erwachsene bestimmt (18+). Die Bilder sind urheberrechtlich 
+            geschützt und dürfen nicht ohne Genehmigung verwendet oder verbreitet werden.
+          </p>
+        </article>
       </main>
     </div>
   );

@@ -1,53 +1,43 @@
-import Link from 'next/link';
+import Head from 'next/head';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import { useState } from 'react';
 
 export default function Datenschutz() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-black">
-      <div className="container mx-auto px-4 py-12">
-        <Link href="/" className="text-[#d0b48f] hover:text-[#e3cbaa] mb-8 inline-block">
-          ← Zurück zur Startseite
-        </Link>
+    <div className="min-h-screen bg-black mt-12">
+      <Head>
+        <title>Datenschutzerklärung | MeliaX-porn</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
 
-        <h1 className="text-3xl font-bold text-[#e3cbaa] mb-8">Datenschutzerklärung</h1>
+      <Navbar 
+        isMobileMenuOpen={isMobileMenuOpen} 
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
+      <Sidebar 
+        isMobileMenuOpen={isMobileMenuOpen} 
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
 
-        <div className="prose prose-invert max-w-none">
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">1. Datenschutz auf einen Blick</h2>
-            <h3 className="text-xl font-bold text-[#d0b48f] mb-3">Allgemeine Hinweise</h3>
-            <p className="text-white">
-              Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten 
-              passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie 
-              persönlich identifiziert werden können.
-            </p>
-          </section>
+      <main className="md:ml-64 pt-32 px-4 md:px-8 pb-12">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl font-bold mb-8 bg-gradient-to-r from-pink-300 via-pink-400 to-pink-500 bg-clip-text text-transparent">
+            Datenschutzerklärung
+          </h1>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">2. Datenerfassung auf unserer Website</h2>
-            <h3 className="text-xl font-bold text-[#d0b48f] mb-3">Cookies</h3>
-            <p className="text-white">
-              Unsere Website verwendet Cookies. Das sind kleine Textdateien, die Ihr Webbrowser auf Ihrem Endgerät 
-              speichert. Cookies helfen uns dabei, unser Angebot nutzerfreundlicher, effektiver und sicherer zu machen.
-            </p>
-          </section>
+          <div className="space-y-6 text-pink-200/80">
+            <section className="bg-gradient-to-r from-pink-600/5 via-purple-600/5 to-pink-500/5 rounded-lg border border-pink-500/10 p-6">
+              <h2 className="text-xl font-semibold mb-4 text-pink-200">1. Datenschutz auf einen Blick</h2>
+              {/* Datenschutz Inhalt */}
+            </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">3. Zahlungsabwicklung</h2>
-            <h3 className="text-xl font-bold text-[#d0b48f] mb-3">Stripe</h3>
-            <p className="text-white">
-              Wir nutzen den Zahlungsdienstleister Stripe für die Abwicklung von Zahlungen. Ihre Zahlungsdaten 
-              werden dabei direkt von Stripe verarbeitet und nicht auf unseren Servern gespeichert.
-            </p>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">4. Social Media</h2>
-            <p className="text-white">
-              Auf unserer Website sind Social Media Plugins von Instagram und Twitch eingebunden. Wenn Sie diese 
-              Plugins nutzen, wird eine Verbindung zu den Servern der jeweiligen Plattformen hergestellt.
-            </p>
-          </section>
+            {/* Weitere Sektionen im gleichen Stil */}
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 } 

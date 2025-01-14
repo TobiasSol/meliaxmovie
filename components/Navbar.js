@@ -5,9 +5,16 @@ import AdBannerHeader from './AdBannerHeader';
 
 export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-black border-b border-gray-800 z-50">
+    <nav className="fixed top-0 left-0 right-0 bg-black border-b border-gray-800 z-50 relative overflow-hidden">
+      {/* Glanzeffekt Container */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-[-10%] w-[120%] h-[120%] animate-shine-navbar">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.05)] to-transparent transform -skew-x-12" />
+        </div>
+      </div>
+
       {/* Desktop Navigation (lg) */}
-      <div className="hidden lg:flex items-center justify-between h-32 px-4">
+      <div className="hidden lg:flex items-center justify-between h-32 px-4 z-10">
         <div className="flex items-center gap-4">
           <Menu 
             className="text-gray-400 cursor-pointer hover:text-red-500"
@@ -19,7 +26,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
           </Link>
         </div>
 
-        <div className="flex-1 max-w-3xl mx-auto px-8">
+        <div className="flex-1 max-w-5xl mx-auto px-8 py-2">
           <AdBannerHeader />
         </div>
 
@@ -52,7 +59,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
       </div>
 
       {/* Tablet Navigation (md) */}
-      <div className="hidden md:flex lg:hidden flex-col h-40">
+      <div className="hidden md:flex lg:hidden flex-col h-40 z-10">
         <div className="flex items-center justify-between px-4 h-12  border-gray-800">
           <div className="flex items-center gap-4">
             <Menu 
@@ -100,7 +107,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden flex flex-col h-36">
+      <div className="md:hidden flex flex-col h-36 relative">
         <div className="flex items-center justify-between px-4 h-12">
           <div className="flex items-center gap-4">
             <Menu 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Head from 'next/head';
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import VideoGrid from "../components/VideoGrid";
 import AdBanner from "../components/AdBanner";
 import { createClient } from '@supabase/supabase-js';
 
@@ -10,7 +11,7 @@ const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 );
 
-const ImageGallery = ({ images, selectedCategory }) => {
+const CustomImageGallery = ({ images, selectedCategory }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -295,26 +296,11 @@ export default function NudesPage() {
         setIsMobileMenuOpen={setIsMobileMenuOpen} 
       />
       
-      <main className="md:ml-64 pt-24 px-4 md:px-8 py-6">
+      <main className="md:ml-64 pt-8 px-4 md:px-8 py-6">
         {/* Categories */}
-        <div className="mb-6 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category.toLowerCase())}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap
-                ${selectedCategory === category.toLowerCase()
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-red-600/20'}`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+     
 
-        {/* Ad Banner */}
-        <AdBanner />
-
+       
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {loading ? (
@@ -322,9 +308,98 @@ export default function NudesPage() {
               <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto"></div>
             </div>
           ) : (
-            <ImageGallery images={images} selectedCategory={selectedCategory} />
+            <CustomImageGallery images={images} selectedCategory={selectedCategory} />
           )}
         </div>
+
+        {/* Videos */}
+       
+
+        {/* SEO Artikel */}
+        <article className="mt-16 prose prose-invert max-w-none">
+          <h1 className="text-3xl font-bold mb-6">MeliaX Nudes: Premium Adult Content von Deutschlands aufstrebendem Star</h1>
+          
+          <p className="mb-4">
+            Die MeliaX Nudes Collection repräsentiert eine perfekte Symbiose aus künstlerischer Fotografie und 
+            authentischem Adult Content. Als eine der gefragtesten Content Creatorinnen Deutschlands setzt MeliaX 
+            neue Maßstäbe in der Qualität und Präsentation ihrer Nude-Inhalte.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Die Evolution von MeliaX Nudes</h2>
+          <p className="mb-4">
+            Seit ihrem Debüt hat sich MeliaX kontinuierlich weiterentwickelt und ihren eigenen, unverwechselbaren 
+            Stil gefunden. Ihre Nude-Content-Strategie umfasst:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Tägliche Updates mit exklusiven Nude-Inhalten</li>
+            <li>Kreative Themen-Shootings mit wechselnden Settings</li>
+            <li>Interaktive Live-Sessions mit Zuschauerbeteiligung</li>
+            <li>Persönliche Einblicke in ihr Leben als Content Creator</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Technische Perfektion trifft natürliche Authentizität</h2>
+          <p className="mb-4">
+            Die technische Umsetzung der MeliaX Nudes setzt neue Standards in der Branche. Jeder Content wird mit 
+            modernster Ausrüstung produziert:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Professionelle Kameraausrüstung für gestochen scharfe Aufnahmen</li>
+            <li>Modernste Beleuchtungstechnik für perfekte Ausleuchtung</li>
+            <li>High-End Post-Production für optimale Bildqualität</li>
+            <li>8K-Auflösung für maximale Detailgenauigkeit</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Exklusive MeliaX Nude Membership Vorteile</h2>
+          <p className="mb-4">
+            Als Premium-Mitglied der MeliaX Nude Community genießen Sie zahlreiche exklusive Vorteile:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Unbegrenzter Zugang zu allen Nude-Inhalten</li>
+            <li>Priorisierter Zugriff auf neue Releases</li>
+            <li>Exklusive Behind-the-Scenes Einblicke</li>
+            <li>Persönliche Interaktionsmöglichkeiten</li>
+            <li>Zugang zum privaten Discord-Server</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Innovative Content-Formate</h2>
+          <p className="mb-4">
+            MeliaX revolutioniert die Art und Weise, wie Nude Content präsentiert wird:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>360° Virtual Reality Experiences</li>
+            <li>Interaktive Foto-Stories</li>
+            <li>Cinematic-Style Videoproduktionen</li>
+            <li>Experimentelle Kunstfotografie</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Community und Interaktion</h2>
+          <p className="mb-6">
+            Die MeliaX Nude Community zeichnet sich durch aktive Beteiligung und engen Austausch aus:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Regelmäßige Live-Events und Q&A Sessions</li>
+            <li>Abstimmungen über zukünftige Content-Richtungen</li>
+            <li>Persönliche Nachrichten und Feedback-Möglichkeiten</li>
+            <li>Exklusive Community-Events</li>
+          </ul>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4">Qualitätsversprechen und Datenschutz</h2>
+          <p className="mb-4">
+            Bei MeliaX Nudes stehen Qualität und Sicherheit an erster Stelle:
+          </p>
+          <ul className="list-disc pl-6 mb-6">
+            <li>Verschlüsselte Übertragung aller Inhalte</li>
+            <li>Regelmäßige Qualitätskontrollen</li>
+            <li>Strenge Datenschutzrichtlinien</li>
+            <li>24/7 Support für Premium-Mitglieder</li>
+          </ul>
+
+          <p className="text-sm text-gray-400 mt-8">
+            Wichtiger Hinweis: Der Zugang zu MeliaX Nudes ist ausschließlich für volljährige Personen (18+) gestattet. 
+            Alle Inhalte sind urheberrechtlich geschützt und dürfen nicht ohne ausdrückliche Genehmigung 
+            weiterverbreitet werden. MeliaX behält sich rechtliche Schritte bei Missbrauch vor.
+          </p>
+        </article>
       </main>
     </div>
   );

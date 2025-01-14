@@ -69,20 +69,7 @@ export default function Home() {
       
       <main className="md:ml-64 pt-24 px-4 md:px-8 py-6">
         {/* Categories */}
-        <div className="mb-6 flex gap-4 overflow-x-auto pb-2 scrollbar-hide">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category.toLowerCase())}
-              className={`px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap
-                ${selectedCategory === category.toLowerCase()
-                  ? 'bg-red-600 text-white'
-                  : 'bg-gray-800 text-gray-300 hover:bg-red-600/20'}`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
+      
 
         {/* Main Content */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
@@ -98,6 +85,49 @@ export default function Home() {
           </div>
         </div>
 
+        
+
+        {/* Bildergalerie */}
+        <section className="">
+          <h2 className="text-2xl font-bold mb-6">MeliaX Porn Exklusive Galerie</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {[
+              'Foto 05.01.25, 14 53 54 (1).jpg',
+              'Foto 12.10.24, 14 43 00.jpg',
+              'Foto 12.10.24, 14 46 58.jpg',
+              'Foto 13.10.24, 17 43 47.jpg',
+              'Foto 13.10.24, 17 45 05.jpg',
+              'Foto 13.10.24, 17 50 05.jpg',
+              'Foto 17.10.24, 22 57 39.jpg',
+              'Foto 19.10.24, 10 17 38.jpg',
+              'Foto 23.10.24, 17 29 09.jpg',
+              'Foto 23.10.24, 17 30 02.jpg',
+              'Foto 26.10.24, 11 43 25 (1).jpg',
+              'Foto 26.10.24, 11 43 25.jpg',
+              'Foto 27.10.24, 21 03 36.jpg',
+              'Foto 27.10.24, 21 04 01.jpg',
+              'Foto 27.10.24, 21 04 22.jpg',
+              'Foto 28.10.24, 16 44 11.jpg',
+              'Foto 30.10.24, 16 23 05.jpg',
+              'Foto 30.10.24, 21 21 32.jpg'
+            ].map((foto, index) => (
+              <div key={index} className="relative group aspect-square overflow-hidden rounded-lg">
+                <img
+                  src={`/meliaxporn/${foto}`}
+                  alt={`MeliaX Porn Sex Cam Bild ${index + 1}`}
+                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute bottom-2 left-2 text-white text-sm">
+                    <p>MeliaX Porn</p>
+                    <p className="text-xs opacity-75">Exklusiver Content</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
         {/* SEO Artikel */}
         <article className="mt-12 prose prose-invert max-w-none">
           <h1 className="text-3xl font-bold mb-6">MeliaX: Aufstrebender Star der deutschen Adult-Entertainment-Szene</h1>
@@ -173,48 +203,6 @@ export default function Home() {
             Hinweis: Alle Inhalte sind ausschließlich für Erwachsene bestimmt (18+)
           </p>
         </article>
-
-        {/* Bildergalerie */}
-        <section className="mt-12">
-          <h2 className="text-2xl font-bold mb-6">MeliaX Porn Exklusive Galerie</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {[
-              'Foto 05.01.25, 14 53 54 (1).jpg',
-              'Foto 12.10.24, 14 43 00.jpg',
-              'Foto 12.10.24, 14 46 58.jpg',
-              'Foto 13.10.24, 17 43 47.jpg',
-              'Foto 13.10.24, 17 45 05.jpg',
-              'Foto 13.10.24, 17 50 05.jpg',
-              'Foto 17.10.24, 22 57 39.jpg',
-              'Foto 19.10.24, 10 17 38.jpg',
-              'Foto 23.10.24, 17 29 09.jpg',
-              'Foto 23.10.24, 17 30 02.jpg',
-              'Foto 26.10.24, 11 43 25 (1).jpg',
-              'Foto 26.10.24, 11 43 25.jpg',
-              'Foto 27.10.24, 21 03 36.jpg',
-              'Foto 27.10.24, 21 04 01.jpg',
-              'Foto 27.10.24, 21 04 22.jpg',
-              'Foto 28.10.24, 16 44 11.jpg',
-              'Foto 30.10.24, 16 23 05.jpg',
-              'Foto 30.10.24, 21 21 32.jpg'
-            ].map((foto, index) => (
-              <div key={index} className="relative group aspect-square overflow-hidden rounded-lg">
-                <img
-                  src={`/meliaxporn/${foto}`}
-                  alt={`MeliaX Porn Sex Cam Bild ${index + 1}`}
-                  className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="absolute bottom-2 left-2 text-white text-sm">
-                    <p>MeliaX Porn</p>
-                    <p className="text-xs opacity-75">Exklusiver Content</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
       </main>
     </div>
   );

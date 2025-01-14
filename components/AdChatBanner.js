@@ -64,7 +64,7 @@ export default function AdChatBanner() {
           <button 
             onClick={toggleBanner}
             className={`absolute -left-10 -top-10 max-[460px]:left-[80px] max-[460px]:top-[0px] w-10 h-10 max-[460px]:w-8 max-[460px]:h-8 rounded-full bg-black border-2 border-[#e3cbaa] text-[#e3cbaa] flex items-center justify-center hover:bg-[#e3cbaa] hover:text-black transition-all duration-300 group z-50 shadow-lg ${
-              !isVisible ? 'hidden' : ''
+              !isVisible ? 'opacity-0 pointer-events-none' : ''
             }`}
           >
             <svg 
@@ -100,9 +100,9 @@ export default function AdChatBanner() {
             <div className="absolute inset-0 rounded-l-xl bg-blue-300 opacity-25 blur-xl animate-neonBorder" />
             
             <div className="relative w-[400px] h-[650px] bg-gradient-to-b from-black via-black to-[#111] rounded-l-xl border-2 border-[#e3cbaa] shadow-2xl p-8 overflow-hidden">
-              {/* Glanz-Animation über den gesamten Banner */}
-              <div className="absolute inset-0 animate-shine-banner pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(227,203,170,0.1)] to-transparent skew-x-[-45deg] translate-x-[-100%]" />
+              {/* Neue Glanzanimation über den gesamten Banner */}
+              <div className="absolute inset-0 animate-shine-banner pointer-events-none overflow-hidden">
+                <div className="absolute inset-[-100%] w-[300%] h-[300%] bg-gradient-to-br from-transparent via-[rgba(227,203,170,0.1)] to-transparent" />
               </div>
 
               {/* Dekorative Ecken */}
@@ -199,7 +199,7 @@ export default function AdChatBanner() {
                   href="https://onlyfans.com/meliax/c19"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="relative overflow-hidden bg-transparent border-2 border-[#e3cbaa] text-[#e3cbaa] hover:text-black font-bold py-2 px-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-base group inline-flex items-center justify-center"
+                  className="relative overflow-hidden bg-transparent border-2 border-[#e3cbaa] text-[#e3cbaa] hover:text-black font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-base group inline-flex items-center justify-center"
                 >
                   <div className="absolute inset-0 bg-[#e3cbaa] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                   <span className="relative z-10">JETZT CHATTEN</span>
@@ -213,10 +213,19 @@ export default function AdChatBanner() {
           </div>
 
           {/* Desktop Banner (nur über 460px) */}
-          <div className="max-[460px]:hidden relative w-[400px] h-[650px] bg-gradient-to-b from-black via-black to-[#111] rounded-l-xl border-2 border-[#e3cbaa] shadow-2xl p-8 overflow-hidden">
-            {/* Glanz-Animation über den gesamten Banner */}
-            <div className="absolute inset-0 animate-shine-banner pointer-events-none">
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[rgba(227,203,170,0.1)] to-transparent skew-x-[-45deg] translate-x-[-100%]" />
+          <div className="max-[460px]:hidden relative w-[400px] h-[650px] bg-gradient-to-b from-black via-black to-[#111] rounded-l-xl border-2 border-[#e3cbaa] shadow-2xl p-8 overflow-hidden group">
+            {/* Verbesserte Glanzanimation */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="absolute inset-[-10%] w-[120%] h-[120%] animate-shine-banner">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#e3cbaa30] to-transparent transform -skew-x-12" />
+              </div>
+            </div>
+
+            {/* Zusätzlicher Hover-Glanzeffekt */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+              <div className="absolute inset-[-10%] w-[120%] h-[120%] animate-shine-slow">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#e3cbaa20] to-transparent transform -skew-x-12" />
+              </div>
             </div>
 
             {/* Dekorative Ecken */}

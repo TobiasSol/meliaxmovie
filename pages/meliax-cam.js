@@ -140,6 +140,107 @@ export default function CamPage() {
               </div>
             </div>
           </div>
+
+          {/* Videos */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+            {/* ... Video Grid Code ... */}
+          </div>
+
+          {/* SEO Artikel */}
+          <article className="mt-16 prose prose-invert max-w-none">
+            <h1 className="text-3xl font-bold mb-6">MeliaX Cam: Live Entertainment der Extraklasse</h1>
+            
+            <p className="mb-4">
+              Die MeliaX Cam Experience bietet ein einzigartiges Live-Streaming-Erlebnis, das die Grenzen zwischen 
+              Unterhaltung und persönlicher Interaktion neu definiert. Als eine der erfolgreichsten deutschen 
+              Cam-Performerinnen setzt MeliaX neue Maßstäbe in Qualität, Interaktivität und Entertainment.
+            </p>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Premium Live-Cam Shows mit MeliaX</h2>
+            <p className="mb-4">
+              Die Live-Cam Shows von MeliaX zeichnen sich durch höchste Professionalität und innovative 
+              Unterhaltungselemente aus. Jede Show bietet:
+            </p>
+            <ul className="list-disc pl-6 mb-6">
+              <li>Full-HD Streaming-Qualität mit kristallklarem Sound</li>
+              <li>Interaktive Elemente und Zuschauer-Feedback in Echtzeit</li>
+              <li>Vielfältige Show-Formate und thematische Specials</li>
+              <li>Persönliche Interaktion mit der Community</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Technische Innovation und Streaming-Qualität</h2>
+            <p className="mb-4">
+              MeliaX investiert in modernste Streaming-Technologie für ein optimales Zuschauererlebnis:
+            </p>
+            <ul className="list-disc pl-6 mb-6">
+              <li>4K-fähige Streaming-Setup für gestochen scharfe Übertragung</li>
+              <li>Mehrere Kameraperspektiven für dynamische Shows</li>
+              <li>Professionelle Beleuchtung und Soundausstattung</li>
+              <li>Stabile Hochgeschwindigkeits-Internetverbindung</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">VIP Cam-Membership Vorteile</h2>
+            <p className="mb-4">
+              Als VIP-Mitglied der MeliaX Cam-Community genießen Sie exklusive Privilegien:
+            </p>
+            <ul className="list-disc pl-6 mb-6">
+              <li>Private Shows und exklusive One-on-One Sessions</li>
+              <li>Priorisierte Chatfunktion während Live-Shows</li>
+              <li>Zugang zu aufgezeichneten Premium-Shows</li>
+              <li>Spezielle VIP-Events und Member-Specials</li>
+              <li>Persönliche Wunsch-Shows nach Absprache</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Interaktive Show-Formate</h2>
+            <p className="mb-4">
+              MeliaX bietet verschiedene innovative Show-Formate:
+            </p>
+            <ul className="list-disc pl-6 mb-6">
+              <li>Thematische Kostüm-Shows und Rollenspiele</li>
+              <li>Interaktive Gaming-Sessions mit Zuschauerbeteiligung</li>
+              <li>Q&A und Talk-Formate für persönlichen Austausch</li>
+              <li>Spontane Überraschungs-Shows für VIP-Member</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Community-Features und Interaktion</h2>
+            <p className="mb-6">
+              Die MeliaX Cam-Community bietet zahlreiche Interaktionsmöglichkeiten:
+            </p>
+            <ul className="list-disc pl-6 mb-6">
+              <li>Live-Chat mit Emoji-Reaktionen und GIF-Support</li>
+              <li>Tipping-System mit speziellen Belohnungen</li>
+              <li>Community-Abstimmungen über Show-Inhalte</li>
+              <li>Exklusive Member-Events und Gewinnspiele</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Show-Zeitplan und Verfügbarkeit</h2>
+            <p className="mb-4">
+              MeliaX bietet einen regelmäßigen Streaming-Zeitplan:
+            </p>
+            <ul className="list-disc pl-6 mb-6">
+              <li>Feste Showzeiten für optimale Planbarkeit</li>
+              <li>Flexible Zusatz-Shows nach Ankündigung</li>
+              <li>24/7 Zugang zu aufgezeichneten Shows für VIP-Member</li>
+              <li>Spontane Late-Night-Specials am Wochenende</li>
+            </ul>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4">Sicherheit und Privatsphäre</h2>
+            <p className="mb-4">
+              Höchste Sicherheitsstandards für alle Mitglieder:
+            </p>
+            <ul className="list-disc pl-6 mb-6">
+              <li>Verschlüsselte Übertragung aller Live-Streams</li>
+              <li>Sichere Zahlungsabwicklung</li>
+              <li>Strenge Datenschutzrichtlinien</li>
+              <li>Moderierter Chat für eine respektvolle Atmosphäre</li>
+            </ul>
+
+            <p className="text-sm text-gray-400 mt-8">
+              Wichtiger Hinweis: Der Zugang zu MeliaX Cam ist ausschließlich für volljährige Personen (18+) gestattet. 
+              Alle Shows und Inhalte sind urheberrechtlich geschützt. Das Aufzeichnen oder Weiterverbreiten von 
+              Streams ist strengstens untersagt und wird rechtlich verfolgt.
+            </p>
+          </article>
         </div>
       </main>
     </div>

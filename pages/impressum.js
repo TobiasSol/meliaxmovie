@@ -1,55 +1,46 @@
-import Link from 'next/link';
+import Head from 'next/head';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import { useState } from 'react';
 
 export default function Impressum() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <div className="min-h-screen bg-black">
-      <div className="container mx-auto px-4 py-12">
-        <Link href="/" className="text-[#d0b48f] hover:text-[#e3cbaa] mb-8 inline-block">
-          ← Zurück zur Startseite
-        </Link>
+    <div className="min-h-screen bg-black mt-12">
+      <Head>
+        <title>Impressum | MeliaX-porn</title>
+        <meta name="robots" content="noindex,nofollow" />
+      </Head>
 
-        <h1 className="text-3xl font-bold text-[#e3cbaa] mb-8">Impressum</h1>
+      <Navbar 
+        isMobileMenuOpen={isMobileMenuOpen} 
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
+      <Sidebar 
+        isMobileMenuOpen={isMobileMenuOpen} 
+        setIsMobileMenuOpen={setIsMobileMenuOpen}
+      />
 
-        <div className="prose prose-invert max-w-none">
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">Angaben gemäß § 5 TMG</h2>
-            <p className="text-white">
-              Meliax<br />
-              Musterstraße 123<br />
-              12345 Musterstadt
-            </p>
-          </section>
+      <main className="md:ml-64 pt-32 px-4 md:px-8 pb-12">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-3xl font-bold mb-8 bg-gradient-to-r from-pink-300 via-pink-400 to-pink-500 bg-clip-text text-transparent">
+            Impressum
+          </h1>
+          
+          <div className="space-y-6 text-pink-200/80">
+            <section className="bg-gradient-to-r from-pink-600/5 via-purple-600/5 to-pink-500/5 rounded-lg border border-pink-500/10 p-6">
+              <h2 className="text-xl font-semibold mb-4 text-pink-200">Angaben gemäß § 5 TMG</h2>
+              {/* Impressum Inhalt */}
+            </section>
 
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">Kontakt</h2>
-            <p className="text-white">
-              Telefon: +49 (0) 123 456789<br />
-              E-Mail: kontakt@  Meliax
-            </p>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">Umsatzsteuer-ID</h2>
-            <p className="text-white">
-              Umsatzsteuer-Identifikationsnummer gemäß §27 a Umsatzsteuergesetz:<br />
-              DE 123 456 789
-            </p>
-          </section>
-
-          <section className="mb-8">
-            <h2 className="text-2xl font-bold text-[#d0b48f] mb-4">Streitschlichtung</h2>
-            <p className="text-white">
-              Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: 
-              https://ec.europa.eu/consumers/odr/.<br />
-              Unsere E-Mail-Adresse finden Sie oben im Impressum.
-            </p>
-            <p className="text-white mt-4">
-              Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer 
-              Verbraucherschlichtungsstelle teilzunehmen.
-            </p>
-          </section>
+            <section className="bg-gradient-to-r from-pink-600/5 via-purple-600/5 to-pink-500/5 rounded-lg border border-pink-500/10 p-6">
+              <h2 className="text-xl font-semibold mb-4 text-pink-200">Kontakt</h2>
+              {/* Kontakt Inhalt */}
+            </section>
+          </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 } 

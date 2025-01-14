@@ -1,6 +1,7 @@
 import { Home, PlaySquare, Heart, Video, Lock, Camera, Film } from 'lucide-react';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import AdBannerSidebar from './AdBannerSidebar';
 
 export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const [isMobile, setIsMobile] = useState(false);
@@ -52,7 +53,13 @@ export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="fixed inset-0 bg-black z-40 md:hidden overflow-y-auto pt-16">
-            {sidebarContent}
+            <div className="flex flex-col h-full">
+              <div className="flex-grow">
+                {sidebarContent}
+              </div>
+              {/* Banner am Ende des mobilen Menüs */}
+              <AdBannerSidebar />
+            </div>
           </div>
         )}
       </>
@@ -60,8 +67,15 @@ export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   }
 
   return (
-    <aside className="hidden md:block w-64 bg-black border-r border-gray-800 h-screen fixed left-0 top-16 pt-4 overflow-y-auto pb-20">
-      {sidebarContent}
+    <aside className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform ${
+      isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full'
+    } md:translate-x-0`}>
+      <div className="flex flex-col h-full px-3 py-4 bg-black border-r border-gray-800">
+        <div className="flex-grow">
+          {sidebarContent}
+        </div>
+        <AdBannerSidebar />
+      </div>
     </aside>
   );
 }
