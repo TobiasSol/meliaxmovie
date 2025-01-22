@@ -1,13 +1,15 @@
 import Link from 'next/link';
 import { FaInstagram, FaTiktok, FaTwitter } from 'react-icons/fa';
 import AdBannerFooter from './AdBannerFooter';
+import AdBannerHeader from './AdBannerHeader';
 
 export default function Footer() {
   return (
     <footer className="bg-black/80 backdrop-blur-sm border-t border-white/10 mt-16">
-      <div className="main-content">
-        <AdBannerFooter />
-        <div className="py-8">
+      <div className="main-content ">
+      
+        <AdBannerHeader />
+        <div className="py-24">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {/* Logo und Social Links */}
             <div className="space-y-4">

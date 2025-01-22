@@ -196,7 +196,7 @@ export default function AdChatBanner() {
               {/* Chat Button mit Glanz-Animation */}
               <div className="absolute left-[47%] bottom-20 w-[260px]">
                 <a 
-                  href="https://onlyfans.com/meliax/c19"
+                  href="https://onlyfans.com/meliax/c21"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="relative overflow-hidden bg-transparent border-2 border-[#e3cbaa] text-[#e3cbaa] hover:text-black font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-base group inline-flex items-center justify-center"
@@ -319,7 +319,7 @@ export default function AdChatBanner() {
             {/* Chat Button mit Glanz-Animation */}
             <div className="absolute left-[47%] bottom-20 w-[260px]">
               <a 
-                href="https://onlyfans.com/meliax/c19"
+                href="https://onlyfans.com/meliax/c21"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative overflow-hidden bg-transparent border-2 border-[#e3cbaa] text-[#e3cbaa] hover:text-black font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg text-base group inline-flex items-center justify-center"

@@ -67,7 +67,7 @@ export default function Home() {
         setIsMobileMenuOpen={setIsMobileMenuOpen} 
       />
       
-      <main className="md:ml-64 pt-24 px-4 md:px-8 py-6">
+      <main className="md:ml-64  px-4 md:px-8 py-6">
         {/* Categories */}
       
 
@@ -102,7 +102,7 @@ export default function Home() {
               'Foto 19.10.24, 10 17 38.jpg',
               'Foto 23.10.24, 17 29 09.jpg',
               'Foto 23.10.24, 17 30 02.jpg',
-              'Foto 26.10.24, 11 43 25 (1).jpg',
+         
               'Foto 26.10.24, 11 43 25.jpg',
               'Foto 27.10.24, 21 03 36.jpg',
               'Foto 27.10.24, 21 04 01.jpg',

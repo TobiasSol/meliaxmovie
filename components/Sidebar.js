@@ -31,7 +31,7 @@ export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   const sidebarContent = (
     <>
       <div className="mb-8">
-        <h3 className="text-gray-400 text-sm font-medium mb-24 px-6">Menu</h3>
+        <h3 className="text-gray-400 text-xl font-medium mb-20 md:mt-20 xl:mt-8 px-6 text-red-600">MELIAX PORN</h3>
         {menuItems.map((item, index) => (
           <Link 
             key={index} 
@@ -40,7 +40,7 @@ export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
             onClick={() => isMobile && setIsMobileMenuOpen(false)}
           >
             {item.icon}
-            <span className="text-sm">{item.label}</span>
+            <span className="text-md">{item.label}</span>
           </Link>
         ))}
       </div>

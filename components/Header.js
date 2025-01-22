@@ -66,14 +66,14 @@ export default function Header() {
             {showChatButton && (
               <div className="flex items-center space-x-4">
                 <Link 
-                  href="https://www.twitch.tv/emmaxschwarz"
+                  href="https://www.twitch.tv/"
                   className="text-base px-4 py-1.5 bg-green-500/10 rounded-lg border border-green-400/50 
                            text-green-400 font-medium hover:bg-green-500/20 transition-all duration-300"
                 >
                   Live Chat mit Meliax
                 </Link>
                 <Link 
-                  href="https://www.twitch.tv/emmaxschwarz"
+                  href="https://www.twitch.tv/"
                   className="text-base px-4 py-1.5 bg-green-500/10 rounded-lg border border-green-400/50 
                            text-green-400 font-medium hover:bg-green-500/20 transition-all duration-300"
                 >
