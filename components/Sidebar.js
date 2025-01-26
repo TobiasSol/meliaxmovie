@@ -19,13 +19,16 @@ export default function Sidebar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
 
   const menuItems = [
     { icon: <Home size={20} />, label: 'Home', href: '/' },
+    { icon: <Camera size={20} />, label: 'Nackt', href: '/meliax-nackt' },
+    { icon: <Film size={20} />, label: 'Sex', href: '/meliax-sex' },
+    { icon: <Camera size={20} />, label: 'Nudes', href: '/meliax-nudes' },
+    { icon: <Lock size={20} />, label: 'Leaks', href: '/meliax-leaks' },
     { icon: <PlaySquare size={20} />, label: 'Live Cams', href: '/meliax-cam' },
     { icon: <Heart size={20} />, label: 'OnlyFans', href: '/meliax-onlyfans' },
     { icon: <Video size={20} />, label: 'Stripchat', href: '/meliax-stripchat' },
-    { icon: <Lock size={20} />, label: 'Leaks', href: '/meliax-leaks' },
-    { icon: <Camera size={20} />, label: 'Nudes', href: '/meliax-nudes' },
-    { icon: <Film size={20} />, label: 'Sex', href: '/meliax-sex' },
-    { icon: <Camera size={20} />, label: 'Nackt', href: '/meliax-nackt' },
+
+
+    
   ];
 
   const sidebarContent = (
