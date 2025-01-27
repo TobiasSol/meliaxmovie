@@ -14,7 +14,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
       </div>
 
       {/* Desktop Navigation (lg) */}
-      <div className="hidden xl:flex items-center px-4 z-10 py-1 ">
+      <div className="hidden xl:flex items-center px-4 z-50 py-1 ">
         <div className="flex items-center gap-4 2xl:ml-6">
           <Menu 
             className="text-gray-400 cursor-pointer hover:text-red-500"

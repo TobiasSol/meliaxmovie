@@ -9,10 +9,23 @@ const nextConfig = {
     ],
     formats: ['image/avif', 'image/webp'],
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; media-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' data:;"
+          }
+        ]
+      }
+    ]
+  },
   i18n: {
     locales: ['de'],
     defaultLocale: 'de',
   },
 }
 
-export default nextConfig;
+export { nextConfig as default };
