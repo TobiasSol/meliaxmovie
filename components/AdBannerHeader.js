@@ -17,7 +17,7 @@ export default function AdBannerHeader({ className = "" }) {
      <Head>
        <link 
          rel="preload" 
-         as="video" 
+     
          href="/Banner/sexchatbannerpn.mp4" 
          type="video/mp4" 
        />
