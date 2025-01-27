@@ -4,7 +4,7 @@ const nextConfig = {
   swcMinify: true,
   images: {
     domains: [
-      'api.meliax-porn.de',
+      'https://meliaxmovie.vercel.app',
       'meliax-porn.de'
     ],
     formats: ['image/avif', 'image/webp'],
