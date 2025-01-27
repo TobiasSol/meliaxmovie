@@ -21,13 +21,13 @@ const nextConfig = {
           {
             key: 'Content-Security-Policy',
             value:
-              "default-src 'self'; " +
-              "script-src 'self' 'unsafe-inline' 'unsafe-eval'; " +
-              "style-src 'self' 'unsafe-inline'; " +
-              "img-src 'self' data:; " +
-              "media-src 'self' data:; " + // Erlaubt das Laden von Medien (Videos) von 'self' und data-URIs
-              "frame-src 'self'; " +
-              "connect-src 'self';",
+"default-src 'self'; " +
+            "script-src 'self' https://a.exdynsrv.com 'unsafe-eval'; " +
+            "style-src 'self' 'unsafe-inline'; " +
+            "img-src 'self' data:; " +
+            "media-src 'self' https://www.meliax-porn.de; " + // Erlaubt das Laden von Videos von deiner Domain
+            "frame-src 'self'; " +
+            "connect-src 'self';",
           },
         ],
       },
