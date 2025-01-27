@@ -18,7 +18,7 @@ export default function AdBannerHeader({ className = "" }) {
        <link 
          rel="preload" 
      
-         href="/Banner/sexchatbannerpn.mp4" 
+         href="/public/Banner/sexchatbannerpn.mp4" 
          type="video/mp4" 
        />
      </Head>
@@ -36,7 +36,7 @@ export default function AdBannerHeader({ className = "" }) {
          preload="auto"
          fetchpriority="high"
        >
-         <source src="/Banner/sexchatbannerpn.mp4" type="video/mp4" />
+         <source src="/public/Banner/sexchatbannerpn.mp4" type="video/mp4" />
        </video>
        
        <div className="w-full max-w-[2000px] mx-auto">
