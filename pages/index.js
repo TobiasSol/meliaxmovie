@@ -41,7 +41,15 @@ export default function Home() {
       
       <main className="md:ml-64  px-4 md:px-8 py-6">
         {/* Categories */}
-      
+        <video
+            className=" w-full h-full object-cover border-2 border-white rounded-lg"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/Banner/sexchatbannerporn.mp4" type="video/mp4" />
+          </video>
 
         {/* Bildergalerie */}
         <section className="">
