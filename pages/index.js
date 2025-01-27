@@ -46,7 +46,7 @@ export default function Home() {
         {/* Bildergalerie */}
         <section className="">
           <h2 className="text-2xl font-bold mb-6">MeliaX Porn Exklusive Galerie</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {[
               'Foto 05.01.25, 14 53 54 (1).jpg',
               'Foto 12.10.24, 14 43 00.jpg',

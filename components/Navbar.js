@@ -5,7 +5,7 @@ import AdBannerHeader from './AdBannerHeader';
 
 export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 bg-black border-b border-gray-800 z-50 relative overflow-hidden pb-8">
+    <nav className="fixed top-0 left-0 right-0 bg-black border-b border-gray-800 z-50 relative overflow-hidden pb-2">
       {/* Glanzeffekt Container */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute inset-[-10%] w-[120%] h-[120%] animate-shine-navbar">
@@ -133,7 +133,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
       </div>
 
       {/* Mobile Navigation */}
-      <div className="md:hidden flex flex-col  relative pt-2 pb-4">
+      <div className="md:hidden flex flex-col  relative pt-2 ">
         <div className="flex items-center justify-between px-4 ">
           <div className="flex items-center gap-4 py-2">
             <Menu 
