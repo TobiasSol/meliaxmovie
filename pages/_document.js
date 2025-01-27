@@ -5,10 +5,22 @@ export default function Document() {
   return (
     <Html lang="de">
       <Head>
-        <meta httpEquiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' 'inline-speculation-rules' 'wasm-unsafe-eval';" />
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" 
-          rel="stylesheet" 
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="
+            default-src 'self'; 
+            script-src 'self' 'unsafe-inline' 'unsafe-eval' https://a.exdynsrv.com; 
+            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
+            font-src 'self' https://fonts.gstatic.com; 
+            img-src 'self' data: https://www.meliax-porn.de; 
+            media-src 'self' https://www.meliax-porn.de; 
+            connect-src 'self'; 
+            frame-src 'self';
+          "
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+          rel="stylesheet"
         />
       </Head>
       <body>
