@@ -5,7 +5,9 @@ const nextConfig = {
   images: {
     domains: [
       'https://meliaxmovie.vercel.app',
-      'meliax-porn.de'
+      'meliax-porn.de',
+      'meliax-porn.de/Banner',  
+      'meliax-porn.de/Banner/sexchatbannerpn.mp4',
     ],
     formats: ['image/avif', 'image/webp'],
   },
@@ -16,7 +18,7 @@ const nextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "default-src 'self'; media-src 'self' https: data: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:;"
+            value: "default-src *; media-src * 'self' blob: data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline';"
           }
         ]
       }
