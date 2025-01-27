@@ -19,7 +19,7 @@ export default function AdBannerHeader({ className = "" }) {
         loop
         playsInline
       >
-        <source src="/Banner/sexchatbannerpn.mp4" type="video/mp4" />
+        <source src="/Banner/sexchatbannerporn.mp4" type="video/mp4" />
       </video>
       
       <div className="w-full max-w-[2000px] mx-auto">

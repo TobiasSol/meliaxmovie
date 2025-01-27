@@ -7,7 +7,7 @@ const nextConfig = {
       'https://meliaxmovie.vercel.app',
       'meliax-porn.de',
       'meliax-porn.de/Banner',  
-      'meliax-porn.de/Banner/sexchatbannerpn.mp4',
+      'meliax-porn.de/Banner/sexchatbannerporn.mp4',
     ],
     formats: ['image/avif', 'image/webp'],
   },
