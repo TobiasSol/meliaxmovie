@@ -127,7 +127,7 @@ export default function Header() {
                 Wishlist
               </Link>
               <Link 
-                href="https://www.twitch.tv/emmaxschwarz" 
+                href="https://www.twitch.tv/" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-110 hover:shadow-lg hover:shadow-[#e3cbaa]/20 
                            px-3 py-1 rounded-lg hover:bg-[#e3cbaa]/5 flex items-center gap-2"
@@ -136,7 +136,7 @@ export default function Header() {
        
               </Link>
               <Link 
-                href="https://twitter.com/emmaxschwarz" 
+                href="https://twitter.com/" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-110 hover:shadow-lg hover:shadow-[#e3cbaa]/20 
                            px-3 py-1 rounded-lg hover:bg-[#e3cbaa]/5 flex items-center gap-2"
@@ -145,7 +145,7 @@ export default function Header() {
               
               </Link>
               <Link 
-                href="https://www.instagram.com/me.lia.x" 
+                href="https://www.instagram.com/lia.the.real" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-110 hover:shadow-lg hover:shadow-[#e3cbaa]/20 
                            px-3 py-1 rounded-lg hover:bg-[#e3cbaa]/5 flex items-center gap-2"
@@ -164,14 +164,14 @@ export default function Header() {
               {showChatButton && (
                 <>
                   <Link 
-                    href="https://www.twitch.tv/emmaxschwarz"
+                    href="https://www.twitch.tv/"
                     className="text-base text-center px-4 py-1.5 bg-green-500/10 rounded-lg border border-green-400/50 
                              text-green-400 font-medium hover:bg-green-500/20 transition-all duration-300"
                   >
                     Live Chat mit Emma
                   </Link>
                   <Link 
-                    href="https://www.twitch.tv/emmaxschwarz"
+                    href="https://www.twitch.tv/"
                     className="text-base text-center px-4 py-1.5 bg-red-500/10 rounded-lg border border-red-400/50 
                              text-red-400 font-medium hover:bg-red-500/20 transition-all duration-300"
                   >
@@ -225,7 +225,7 @@ export default function Header() {
 
 
               <Link 
-                href="https://www.twitch.tv/emmaxschwarz" 
+                href="https://www.twitch.tv/" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-105 hover:shadow-lg hover:shadow-[#e3cbaa]/20
                            px-3 py-2 rounded-lg hover:bg-[#e3cbaa]/5 text-center flex items-center justify-center gap-2"
@@ -234,7 +234,7 @@ export default function Header() {
                 Twitch
               </Link>
               <Link 
-                href="https://twitter.com/emmaxschwarz" 
+                href="https://twitter.com" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-105 hover:shadow-lg hover:shadow-[#e3cbaa]/20
                            px-3 py-2 rounded-lg hover:bg-[#e3cbaa]/5 text-center flex items-center justify-center gap-2"
@@ -243,7 +243,7 @@ export default function Header() {
                 Twitter
               </Link>
               <Link 
-                href="https://www.instagram.com/me.lia.x" 
+                href="https://www.instagram.com/lia.the.real" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-105 hover:shadow-lg hover:shadow-[#e3cbaa]/20
                            px-3 py-2 rounded-lg hover:bg-[#e3cbaa]/5 text-center flex items-center justify-center gap-2"

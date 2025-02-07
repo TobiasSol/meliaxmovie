@@ -46,7 +46,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
             </div>
             <div className="flex items-center gap-6 justify-center ">
               <a 
-                href="https://www.instagram.com/me.lia.x"
+                href="https://www.instagram.com/lia.the.real"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-red-500 hover:text-red-600 transition-colors"
@@ -99,7 +99,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
             </div>
             <div className="flex items-center gap-4">
               <a 
-                href="https://www.instagram.com/me.lia.x"
+                href="https://www.instagram.com/lia.the.real"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-red-500 hover:text-red-600"
@@ -148,7 +148,7 @@ export default function Navbar({ isMobileMenuOpen, setIsMobileMenuOpen }) {
 
           <div className="flex items-center gap-3 py-2">
             <a 
-              href="https://www.instagram.com/me.lia.x"
+              href="https://www.instagram.com/lia.the.real"
               target="_blank"
               rel="noopener noreferrer"
               className="text-red-500 hover:text-red-600"

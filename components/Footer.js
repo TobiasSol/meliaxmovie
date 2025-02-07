@@ -18,7 +18,7 @@ export default function Footer() {
               </Link>
               <div className="flex space-x-4">
                 <a 
-                  href="https://www.instagram.com/me.lia.x"
+                  href="https://www.instagram.com/lia.the.real"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-red-500 hover:text-red-600 transition-colors"
