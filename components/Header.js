@@ -145,7 +145,7 @@ export default function Header() {
               
               </Link>
               <Link 
-                href="https://www.instagram.com/lia.the.real" 
+                href="https://www.instagram.com/meliax_sweet" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-110 hover:shadow-lg hover:shadow-[#e3cbaa]/20 
                            px-3 py-1 rounded-lg hover:bg-[#e3cbaa]/5 flex items-center gap-2"
@@ -243,7 +243,7 @@ export default function Header() {
                 Twitter
               </Link>
               <Link 
-                href="https://www.instagram.com/lia.the.real" 
+                href="https://www.instagram.com/meliax_sweet" 
                 className="text-lg font-medium text-[#d0b48f] hover:text-[#e3cbaa] transition-all duration-300
                            hover:scale-105 hover:shadow-lg hover:shadow-[#e3cbaa]/20
                            px-3 py-2 rounded-lg hover:bg-[#e3cbaa]/5 text-center flex items-center justify-center gap-2"

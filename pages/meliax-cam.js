@@ -43,7 +43,20 @@ export default function CamPage() {
           {/* Stream Window */}
           <div className="bg-gray-900 rounded-lg overflow-hidden mb-6">
             <div className="aspect-video bg-black relative">
-              <div className="absolute inset-0 flex items-center justify-center">
+              <video 
+                className="w-full h-full object-cover"
+                controls
+                autoPlay
+                muted
+                playsInline
+                poster="/videos/thumbnail.jpg" // Optional: Ein Vorschaubild
+              >
+                <source src="https://mfxauhtydxmrtelqdpia.supabase.co/storage/v1/object/public/videos//0218.mp4" type="video/mp4" />
+                Dein Browser unterstützt keine Videos.
+              </video>
+              
+              {/* Fallback für den Ladezustand */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-0">
                 <p className="text-gray-500 text-lg">Stream wird geladen...</p>
               </div>
             </div>

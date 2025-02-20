@@ -12,9 +12,9 @@ export default function Document() {
             script-src 'self' 'unsafe-inline' 'unsafe-eval' https://a.exdynsrv.com; 
             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
             font-src 'self' https://fonts.gstatic.com; 
-            img-src 'self' data: https://www.meliax-porn.de; 
-            media-src 'self' https://www.meliax-porn.de; 
-            connect-src 'self'; 
+            img-src 'self' data: https://www.meliax-porn.de https://mfxauhtydxmrtelqdpia.supabase.co; 
+            media-src 'self' https://www.meliax-porn.de https://mfxauhtydxmrtelqdpia.supabase.co; 
+            connect-src 'self' https://mfxauhtydxmrtelqdpia.supabase.co; 
             frame-src 'self';
           "
         />
